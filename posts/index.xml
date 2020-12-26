@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Yingjia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 25 Dec 2020 16:27:46 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 26 Dec 2020 23:17:07 +0800</lastBuildDate>
     
 	<atom:link href="http://mcps5601.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Test</title>
+      <link>http://mcps5601.github.io/posts/test/</link>
+      <pubDate>Sat, 26 Dec 2020 23:17:07 +0800</pubDate>
+      
+      <guid>http://mcps5601.github.io/posts/test/</guid>
+      <description>Hello word!</description>
+    </item>
     
     <item>
       <title>My First Post</title>
