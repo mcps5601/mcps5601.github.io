@@ -6,10 +6,20 @@
     <description>Recent content on Yingjia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 26 Dec 2020 23:17:07 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Dec 2020 15:48:25 +0800</lastBuildDate>
     
 	<atom:link href="https://mcps5601.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://mcps5601.github.io/about/</link>
+      <pubDate>Mon, 28 Dec 2020 15:48:25 +0800</pubDate>
+      
+      <guid>https://mcps5601.github.io/about/</guid>
+      <description>My name is Ying-Jia Lin.I am currently a PhD student at National Cheng Kung University.
+Research interests  Natural Language Processing Computer Vision Bioinformatics  Education  M.S., Institute of Biomedical Informatics, National Yang-Ming University, 2017.6 ~ 2019.7 B.S., Department of Biomedical Sciences, Chang Gung University, 2013.9 ~ 2017.6  </description>
+    </item>
     
     <item>
       <title>Test</title>
