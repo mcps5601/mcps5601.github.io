@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Yingjia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 25 Dec 2020 16:27:46 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 02 Mar 2021 14:11:38 +0800</lastBuildDate>
     
 	<atom:link href="https://mcps5601.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Math Terms</title>
+      <link>https://mcps5601.github.io/posts/math-terms/</link>
+      <pubDate>Tue, 02 Mar 2021 14:11:38 +0800</pubDate>
+      
+      <guid>https://mcps5601.github.io/posts/math-terms/</guid>
+      <description>數學證明常用名詞  Definition (定義): 解釋某個數學用語的意義 Theorem (定理): 重要的數學敘述或理論，通常經由證明而得 Axiom (公理): 普遍可以被接受且不用經過證明的現象或敘述 Proposition (命題): 和定理意涵相似，可能是重要程度較低的小結果 Lemma (引理): 輔助證明以引導出定理的小結果，因為證明定理的過程可能篇幅很長 Remark (評論): 對於定理或證明結果所引申出來的敘述 Corollary (推論): 基於定理來進一步推導的論述，通常也有證明輔助  </description>
+    </item>
     
     <item>
       <title>My First Post</title>
