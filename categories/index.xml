@@ -5,10 +5,6 @@
     <link>https://mcps5601.github.io/categories/</link>
     <description>Recent content in Categories on Yingjia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    
-	<atom:link href="https://mcps5601.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>zh-tw</language><atom:link href="https://mcps5601.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

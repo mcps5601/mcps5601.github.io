@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>Sentence-BERT - Yingjia&#39;s blog</title>
+
+  
+  
+  <meta name="description" content="會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$" />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://mcps5601.github.io/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="https://mcps5601.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://mcps5601.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/theme.png" />
+
+  
+
+  
+  <link rel="icon" href="https://mcps5601.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://mcps5601.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Sentence-BERT" />
+<meta property="og:description" content="會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mcps5601.github.io/post/sbert/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-07T22:25:52+08:00" />
+<meta property="article:modified_time" content="2021-10-07T22:25:52+08:00" />
+
+
+  
+  <meta itemprop="name" content="Sentence-BERT">
+<meta itemprop="description" content="會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$"><meta itemprop="datePublished" content="2021-10-07T22:25:52+08:00" />
+<meta itemprop="dateModified" content="2021-10-07T22:25:52+08:00" />
+<meta itemprop="wordCount" content="236">
+<meta itemprop="keywords" content="BERT,sentence_embeddings," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sentence-BERT"/>
+<meta name="twitter:description" content="會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$"/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="false">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="https://mcps5601.github.io/">Yingjia&#39;s blog</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Thursday, October 7, 2021</time>
+      
+    </p>
+    <h1>Sentence-BERT</h1>
+  </header>
+  <section class="post-content"><ul>
+<li>會議: EMNLP 2019 (<a href="https://aclanthology.org/D19-1410.pdf">論文連結</a>)(<a href="https://github.com/UKPLab/sentence-transformers">code連結</a>)</li>
+<li>作者單位: UKPLab</li>
+<li>主要任務: semantic  textual  similarity  (STS)</li>
+</ul>
+<h2 id="快速重點">快速重點</h2>
+<ul>
+<li>這是一個 sentence embeddings 的工作</li>
+<li>提出 SBERT 和 SRoBERTa
+<ul>
+<li>基於 siamese 和 triplet loss 架構</li>
+</ul>
+</li>
+<li>在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好</li>
+<li>在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分</li>
+<li>在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升</li>
+</ul>
+<h2 id="背景">背景</h2>
+<h3 id="bert">BERT</h3>
+<ul>
+<li>將兩個句子以<code>SEP</code>合起來當成1個句子</li>
+<li>在 inference 時會很沒有效率
+<ul>
+<li>inference 時是要找到最佳的配對組合</li>
+<li>假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次
+<ul>
+<li>10,000個句子只會找本身以外的10,000-1個句子</li>
+<li>因為是找成對句子，所以總次數除以2</li>
+</ul>
+</li>
+<li>以 V100 來做運算的話需要花費 65 小時</li>
+</ul>
+</li>
+</ul>
+<h2 id="方法">方法</h2>
+<h3 id="模型">模型</h3>
+<ul>
+<li>對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理:
+(1) 取 <code>CLS</code> token
+(2) 取 MEAN
+(3) 取 MAX
+來得到固定大小 (fixed sized) 的句向量</li>
+<li>本論文預設使用 ==MEAN== 作為 pooling 方法</li>
+</ul>
+<h3 id="分類任務的最佳化方式">分類任務的最佳化方式</h3>
+<ul>
+<li>
+<p>$o=\text{softmax}(W_t(u,v,|u-v|))$</p>
+<ul>
+<li>其中:
+<ul>
+<li>$u$ 和 $v$ 分別是不同句子的句向量</li>
+<li>$|u-v|$ 是兩個句向量的差 (element-wise difference)</li>
+<li>$W_t \in \mathbb{R}^{3n\times k}$
+<ul>
+<li>$n$ 是句向量的維度</li>
+<li>$k$ 是 label 的數目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>如下圖 1 所示
+<img src="https://i.imgur.com/8MCr0S0.png" alt=""></p>
+</li>
+</ul>
+<h3 id="迴歸任務的最佳化方式">迴歸任務的最佳化方式</h3>
+<ul>
+<li>先計算相似度
+<ul>
+<li>$\textrm{cos_similarity}(s_u, s_v)$</li>
+</ul>
+</li>
+<li>再 minimize mean-squared error</li>
+<li>如下圖 2 所示
+<img src="https://i.imgur.com/7VCk0er.png" alt=""></li>
+</ul>
+<h3 id="triplet-任務的最佳化方式">Triplet 任務的最佳化方式</h3>
+<ul>
+<li>針對 Wikipedia section triplets dataset (<a href="https://aclanthology.org/P18-2009.pdf">Dor et al., 2018</a>).</li>
+<li>Minimize
+<ul>
+<li>$\textrm{max}(||s_a-s_p||-||s_a-s_n||+\epsilon, 0)$</li>
+<li>$s_a$: an anchor sentence</li>
+<li>$s_p$: a positive sentence</li>
+<li>$s_n$: a negative sentence</li>
+<li>$||\cdot||$: Euclidean distance</li>
+<li>目標是要最小化 $a$ 和 $p$ 的距離，並使 $a$ 和 $n$ 的距離最大化</li>
+<li>$\epsilon$: 用來確保最佳化之後 $a$ 和 $p$ 的距離至少會比 $a$ 和 $n$ 的距離少一個 $\epsilon$</li>
+</ul>
+</li>
+</ul>
+<h3 id="sbert-的訓練">SBERT 的訓練</h3>
+<ul>
+<li>使用 SNLI 和 MNLI 進行三分類任務的 fine-tuning
+<ul>
+<li>權重初始化
+<ul>
+<li>SBERT: 使用 pre-trained BERT</li>
+<li>RoBERTa: 使用 pre-trained RoBERTa</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>訓練時間: ==1 個 epoch==</li>
+<li>batch size 16</li>
+<li>Adam optimizer</li>
+<li>learning rate 2e-5</li>
+<li>使用 10% 的 training data 進行 linear learning rate warmup</li>
+</ul>
+<h2 id="實驗結果">實驗結果</h2>
+<h3 id="sts-b">STS-B</h3>
+<ul>
+<li>根據 Table 2，可以發現在沒有經過 fine-tuning 的情況下，SBERT-NLI 比 BERT embeddings 表現更好，也勝過先前的 sentence embeddings</li>
+</ul>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="https://mcps5601.github.io/tags/bert">BERT</a>
+     
+    <a href="https://mcps5601.github.io/tags/sentence_embeddings">sentence_embeddings</a>
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="https://mcps5601.github.io/post/my-second-post/"><span>←</span><span>My Second Post</span></a>
+     
+    <a class="next" href="https://mcps5601.github.io/post/math-terms/"><span>Math Terms</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2021 <a href="https://mcps5601.github.io/">Yingjia&#39;s blog</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [["$", "$"]],
+        },
+        displayMath: [
+            ["$$", "$$"],
+            ["\[\[", "\]\]"],
+        ],
+        svg: {
+            fontCache: "global",
+        },
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>
