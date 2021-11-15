@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>Trees and Distance: Basic Properties - 隨英紛飛</title>
+
+  
+  
+  <meta name="description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree." />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://mcps5601.github.io/app.min.css" />
+
+  
+
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/theme.png" />
+
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://mcps5601.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://mcps5601.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Trees and Distance: Basic Properties" />
+<meta property="og:description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mcps5601.github.io/post/graph_ch_2_1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-15T14:49:12+08:00" />
+<meta property="article:modified_time" content="2021-11-15T14:49:12+08:00" />
+
+
+  
+  <meta itemprop="name" content="Trees and Distance: Basic Properties">
+<meta itemprop="description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree."><meta itemprop="datePublished" content="2021-11-15T14:49:12+08:00" />
+<meta itemprop="dateModified" content="2021-11-15T14:49:12+08:00" />
+<meta itemprop="wordCount" content="886">
+<meta itemprop="keywords" content="圖形理論,math," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Trees and Distance: Basic Properties"/>
+<meta name="twitter:description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree."/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="false">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="https://mcps5601.github.io/">隨英紛飛</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="twitter"
+      style="--url: url(./twitter.svg)"
+      href="https://twitter.com/mcps5601"
+      target="_blank"
+    ></a>
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/mcps5601"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Monday, November 15, 2021</time>
+      
+    </p>
+    <h1>Trees and Distance: Basic Properties</h1>
+  </header>
+  <section class="post-content"><ul>
+<li>參考書籍: <a href="https://faculty.math.illinois.edu/~west/igt/">Introduction to Graph Theory - Second edition</a></li>
+</ul>
+<h2 id="樹基本定義">樹基本定義</h2>
+<h3 id="acyclic">acyclic</h3>
+<ul>
+<li>A graph with no cycle</li>
+</ul>
+<h3 id="forest">forest</h3>
+<ul>
+<li>An acyclic graph</li>
+</ul>
+<h3 id="tree">tree</h3>
+<ul>
+<li>A connected acyclic graph</li>
+</ul>
+<h3 id="leaf">leaf</h3>
+<ul>
+<li>A vertex of degree 1</li>
+<li>又稱作 pendant vertex</li>
+</ul>
+<h3 id="spanning-subgraph">spanning subgraph</h3>
+<ul>
+<li>A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.</li>
+</ul>
+<h3 id="spanning-tree">spanning tree</h3>
+<ul>
+<li>A spanning tree is a spanning subgraph that is a tree.</li>
+</ul>
+<h2 id="lemma-213">Lemma 2.1.3</h2>
+<ul>
+<li><!-- raw HTML omitted -->Every tree with at least two vertices has at least two leaves. Deleting a leaf from an $n$-vertex tree produces a tree with $n-1$ vertices.<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof">Proof</h3>
+<ul>
+<li>設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G'=G-v$</li>
+<li>由於 $v$ 是一個 leaf，其 degree 為1</li>
+<li>且每個 tree 的 leaf 必定為其上的 path 的終點</li>
+<li>移除一個 leaf 後，path 上的剩餘點仍相連</li>
+<li>因此 $G'$ 是一個具有具有 $n-1$ 個 vertices 的 tree</li>
+</ul>
+<h2 id="theorem-214">Theorem 2.1.4</h2>
+<p>For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent.</p>
+<ul>
+<li>(A) <!-- raw HTML omitted -->$G$ is connected and no cycles.<!-- raw HTML omitted --></li>
+<li>(B) <!-- raw HTML omitted -->$G$ is connected and has $n-1$ edges.<!-- raw HTML omitted --></li>
+<li>(C) <!-- raw HTML omitted -->$G$ has $n-1$ edges and no cycles.<!-- raw HTML omitted --></li>
+<li>(D) <!-- raw HTML omitted -->$G$ has no loops and has, for exactly one $u-v$ path.<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-a推到bc">Proof: A推到{B,C}</h3>
+<p>By induction
+$n=1$: trivial
+$n&gt;1$: Given an acyclic connected graph $G$, $\exists$ a leaf $v$ s.t. $G'=G-v$ is also acyclic and connected.
+By I.H., $e(G')=n-2\Rightarrow e(G)=n-1$</p>
+<h3 id="proof-b推到ac">Proof: B推到{A,C}</h3>
+<ul>
+<li>如果 $G$ 有 cycle 的話，就破壞 edge，直到形成 B 的性質，設為 $G'$</li>
+<li>此時 $G'$ 是 acyclic $\Rightarrow G'$ 是 connected，可推得 A</li>
+<li>$G'$ 是 connected $\Rightarrow e(G')=n-1=e(G)$，可推得 C</li>
+</ul>
+<h3 id="proof-c推到ab">Proof: C推到{A,B}</h3>
+<ul>
+<li>設 $G$ 不 connected，且 $G_1, G_2, \dots, G_k$ 是 $G$ 的 components，每個 components $G_i$ 是 connected ($i=1, 2, \dots, k$)</li>
+<li>因為每個 components $G_i$ 是 connected
+$\Rightarrow e(G_i)=n(G_i)-1$
+$\Rightarrow e(G)=\sum_i[n(G_i)-1]=n-k$</li>
+<li>由於 $e(G)=n-1\Rightarrow k=1\Rightarrow G$ 是 connected，可推得 A 和 B</li>
+</ul>
+<h3 id="proof-a推到d">Proof: A推到D</h3>
+<ul>
+<li>因為 $G$ 是 connected，則每對 vertices 只會有一條 path 相連，可推得 D</li>
+<li>如果每對 vertices 有兩條 paths 相連，則會形成 cycle，矛盾</li>
+</ul>
+<h3 id="proof-d推到a">Proof: D推到A</h3>
+<ul>
+<li>顯然 $G$ 是 connected</li>
+<li>如果 $G$ 有 cycle $C$ 連接 $u, v\in V(G)$，則會存在兩條 $u-v$ paths，矛盾</li>
+<li>因此 G 是 acyclic，可推得 A</li>
+</ul>
+<h2 id="corollary-215">Corollary 2.1.5</h2>
+<p>(A) <!-- raw HTML omitted -->Every edge of a tree is a cut-edge.<!-- raw HTML omitted -->
+(B) <!-- raw HTML omitted -->Adding one edge to a tree forms exactly one cycle.<!-- raw HTML omitted -->
+(C) <!-- raw HTML omitted -->Every connected graph contains a spanning tree.<!-- raw HTML omitted --></p>
+<h3 id="proof-1">Proof</h3>
+<p>(A) 因為 tree 沒有 cycle
+(B) 因為 tree 中任兩點的連接都是 unique path
+(C)</p>
+<ul>
+<li>設一 connected graph $G$ 的子圖為 $H$</li>
+<li>即使 $H$ 中有 cycle，則將其 cycle 破壞之後一定可以得到  connected subgraph $\hat{H}$</li>
+<li>此時 $\hat{H}$ 是 connected 且沒有 cycle，故是一個樹</li>
+</ul>
+<h2 id="proposition-216">Proposition 2.1.6</h2>
+<ul>
+<li><!-- raw HTML omitted -->If $T$ and $T'$ are spanning trees of a connected graph $G$ and $e\in E(T)-E(T')$,<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->then there is an edge $e'\in E(T')-E(T)$ such that $T-e+e'$ is a spanning tree of $G$.<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-2">Proof</h3>
+<ul>
+<li>設 $U, U'$ 為 $T-e$ 的兩個 components</li>
+<li>因為 $T'$ 是 connected，$T'$ 的 edge $e'$ 正好連接 $U, U'$ 的兩個端點</li>
+<li>故 $T-e+e'$ 是 $G$ 的 spanning tree</li>
+</ul>
+<h2 id="proposition-217">Proposition 2.1.7</h2>
+<ul>
+<li><!-- raw HTML omitted -->If $T$ and $T'$ are spanning trees of a connected graph $G$ and $e\in E(T)-E(T')$,<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->then there is an edge $e'\in E(T')-E(T)$ such that $T'+e-e'$ is a spanning tree of $G$.<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-3">Proof</h3>
+<ul>
+<li>$T'+e$ 形成一個 unique cycle $C$</li>
+<li>由於 $T$ 是 acyclic，移除 $T'+e$ 的 edge $e'$ 將破壞 cycle $C$</li>
+<li>故 $T'+e-e'$ 是 $G$ 的 spanning tree</li>
+</ul>
+<h2 id="definitions-of-trees-and-graphs">Definitions of Trees and Graphs</h2>
+<table>
+<thead>
+<tr>
+<th>distance</th>
+<th>diameter</th>
+<th>eccentricity</th>
+<th>radius</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$d_G(u, v)$</td>
+<td>$\textrm{diam}\space G$</td>
+<td>$\varepsilon(u)$</td>
+<td>$\textrm{rad}\space G$</td>
+</tr>
+<tr>
+<td>$u,v-$path 的最小長度</td>
+<td>$G$ 中任兩點的最大長度</td>
+<td>$G$ 中的點到 $u$ 的最大長度</td>
+<td>$G$ 中最小的 eccentricity</td>
+</tr>
+<tr>
+<td></td>
+<td>$\textrm{max}_{u,v\in V(G)}d(u,v)$</td>
+<td>$\textrm{max}_{v\in V(G)}d(u,v)$</td>
+<td>$\textrm{min}_{u\in V(G)}\varepsilon(u)$</td>
+</tr>
+</tbody>
+</table>
+<h2 id="theorem-2111">Theorem 2.1.11</h2>
+<ul>
+<li><!-- raw HTML omitted -->If $G$ is a simple graph, then $\textrm{diam}\space G\geq3\Rightarrow\textrm{diam}\space \bar{G}\leq3$<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-4">Proof</h3>
+<ul>
+<li>當 $\textrm{diam}\space G&gt;2$ 時，存在非相鄰點 $u, v\in V(G)$，且 $u, v$ 沒有共鄰居</li>
+<li>所以任意一個 $x\in V(G)-{u,v}$ 不相鄰於 $u$ 或不相鄰於 $v$</li>
+<li>因此反過來，在 $\bar{G}$ 中，$x\in V(\bar{G})-{u,v}$ 至少與 ${u,v}$ 中至少 1 個點相鄰，如下圖所示：
+<img src="https://i.imgur.com/Kowh5aN.png" alt=""></li>
+<li>故可以推得 $\textrm{diam}\space \bar{G}\leq3$</li>
+</ul>
+<h2 id="其他定義">其他定義</h2>
+<h3 id="center">center</h3>
+<ul>
+<li>eccentricity 最小的 subgraph</li>
+<li>任 2 點在原圖相鄰，在生成子圖也必定相鄰</li>
+</ul>
+<h3 id="wiener-index">Wiener index</h3>
+<ul>
+<li>$G$ 中任 2 點 distances 的和
+<ul>
+<li>$D(G)=\sum_{u,v\in V(G)}d_G(u,v)$</li>
+</ul>
+</li>
+</ul>
+<h2 id="theorem-2113">Theorem 2.1.13</h2>
+<ul>
+<li><!-- raw HTML omitted -->The center of a tree is a vertex or an edge.<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-5">Proof</h3>
+<ul>
+<li>設有 1 個 tree $T$</li>
+<li>By induction
+<ul>
+<li>當 $n(T)\leq2$ 時，<em>center</em> 是一整個樹</li>
+<li>當 $n(T)\geq2$ 時:
+<ul>
+<li>刪去 $T$ 的每一個 leaf，得到 $T'$</li>
+<li>此時 $n(T')\geq 1$，且 $\varepsilon_{T'}(u)=\varepsilon_T(u)-1 ,\space \forall u\in V(T')$</li>
+<li>並且 $T$ 中的 leaf 的 eccentricity 大於 leaf 的鄰居 的 eccentricity</li>
+<li>由此可知，$T$ 和 $T'$ eccentricity 最小的 vertices 是一樣的</li>
+<li>故 center 如果不是一個點就是一個edge</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="theorem-2114">Theorem 2.1.14</h2>
+<ul>
+<li><!-- raw HTML omitted -->Among trees with $n$ vertices, the Wiener index $D(T)=\sum_{u,v}d(u,v)$ is minimized by stars and maximized by paths, both uniquely.<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="stars">Stars</h3>
+<h4 id="證明最小值">證明最小值</h4>
+<ul>
+<li>一個樹有 $n-1$ 個 edges，每對點的連線至少為 distance 1，stars 的性質正好可以使 Wiener index 最小，故得證</li>
+</ul>
+<h4 id="證明獨特性-uniqueness">證明獨特性 (Uniqueness)</h4>
+<ul>
+<li>考慮 leaf $x\in T$ 以及 $x$ 的鄰居 $v$</li>
+<li>如果有其他點與 $x$ 的距離為 2，則該點與 $v$ 相鄰</li>
+<li>此特性使 $T$ 屬於一個 star</li>
+</ul>
+<h4 id="求值">求值</h4>
+<ul>
+<li>$D(K_{1,n-1})=(n-1)+2(^{n-1}_2)=(n-1)^2$
+<ul>
+<li>$(n-1)$ 為中間點到其他點的距離</li>
+<li>$2(^{n-1}_2)$ 每個 leaf 到其他點的距離</li>
+</ul>
+</li>
+</ul>
+<h3 id="paths">Paths</h3>
+<h4 id="求值-1">求值</h4>
+<ul>
+<li>令 $u$ 為一條 $n$-vertex path $P_n$ 的端點 (endpoint)</li>
+<li>$\sum_{v\in V(P_n)}d(u,v)=\sum^{n-1}_{i=0}i=C(^n_2)$
+<ul>
+<li>從 $u$ 出發，不算 $u$ 的話有 $n-1$ 個點，$0+1+\dots+n-1$ 即為 $P_n$ 的長度，正好為 $C(^n_2)$</li>
+</ul>
+</li>
+<li>計算 $D(P_n)$:
+\begin{align*}
+D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\<br>
+&amp;=D(P_{n-1})+D(P_{n-2})+C(^n_2) \\\<br>
+&amp;=D(P_{n-1})+D(P_{n-2})+\dots +D(P_3)+D(P_2)+D(P_1)+C(^n_2) \\\<br>
+\end{align*}</li>
+<li>其中根據 ==Pascal&rsquo;s Formula==:
+$$
+C(^{n+1}<em>k)=C(^n_k)+C(^n</em>{k-1})
+$$</li>
+<li>因此 $D(P_3)+D(P_2)+D(P_1)$ 可以寫成:
+\begin{align*}
+D(P_3)+D(P_2)+D(P_1)&amp;=C(^3_2)+C(^2_2)+0 \\\<br>
+&amp;=C(^3_2)+C(^3_3)+0 \\\<br>
+&amp;=C(^4_3)
+\end{align*}</li>
+<li>故可以推導 $D(P_n)$:
+\begin{align*}
+D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\<br>
+&amp;=D(P_{n-1})+D(P_{n-2})+C(^n_2) \\\<br>
+&amp;=C(^{n-1}_2)+C(^{n-1}_3)+C(^n_2) \\\<br>
+&amp;=C(^n_3)+C(^n_2) \\\<br>
+&amp;=C(^{n+1}_3)
+\end{align*}</li>
+</ul>
+<h4 id="證明獨特性-uniqueness-1">證明獨特性 (Uniqueness)</h4>
+<ul>
+<li>(Base) 當 $n=1$ 時，得證，因為此時的樹只有一個點，path 為 $P_1$</li>
+<li>(Induction step) 當 $n&gt;1$ 時:
+<ul>
+<li>設 $u$ 為一個 leaf</li>
+<li>$\Rightarrow D(T)=D(T-u)+\sum_{v\in V(T)}d(u,v)$</li>
+<li>By induction hypothesis:
+<ul>
+<li>$D(T-u)\leq D(P_{n-1})$</li>
+<li>等號成立時代表 $T-u$ 是一條 path</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="證明最大值">證明最大值</h4>
+<ul>
+<li>設點 $u$ 在一棵樹 $T$ 的一路徑 $P_n$ 中到其他點的距離為一集合 ${1,2,\dots,n-1}$</li>
+<li>此集合包含了&quot;與 $u$ 最近的點&quot; 以及&quot;與 $u$ 最遠的點&quot;</li>
+<li>若 $u$ 不是 $P_n$ 的端點，則 $u$ 到 $P_n$ 其他點的距離會縮短 $\Rightarrow \sum_{v\in V(T)}d(u,v)$ 會變小</li>
+<li>故當 $u, v$ 構成 Path 時 $D(T)=\sum_{u,v}d(u,v)$ 會有最大值</li>
+</ul>
+<h2 id="lemma-2115">Lemma 2.1.15</h2>
+<ul>
+<li><!-- raw HTML omitted -->If $H$ is a subgraph of $G$, then $d_G(u,v)\leq d_H(u,v)$<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-6">Proof</h3>
+<ul>
+<li>$H$ 中的任一 path 也存在於 $G$ 中</li>
+<li>因此 $G$ 中最短的 path 必定不會比 $H$ 的最短的 path 還長</li>
+</ul>
+<h2 id="corollary-2116">Corollary 2.1.16</h2>
+<ul>
+<li><!-- raw HTML omitted -->If $G$ is a connected $n$-vertex graph, then $D(G)\leq D(P_n)$<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="proof-7">Proof</h3>
+<ul>
+<li>設 $T$ 為 $G$ 的 spanning tree</li>
+<li>則 $D(G)\leq D(T)$
+<ul>
+<li>based on Lemma 2.1.15</li>
+</ul>
+</li>
+<li>且 $D(Ｔ)\leq D(P_n)$
+<ul>
+<li>based on Theorem 2.1.14</li>
+</ul>
+</li>
+</ul>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="https://mcps5601.github.io/tags/%E5%9C%96%E5%BD%A2%E7%90%86%E8%AB%96">圖形理論</a>
+     
+    <a href="https://mcps5601.github.io/tags/math">math</a>
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="post-nav">
+     
+    <a class="next" href="https://mcps5601.github.io/post/radbert-cl/"><span>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2021 <a href="https://mcps5601.github.io/">隨英紛飛</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [["$", "$"]],
+        },
+        displayMath: [
+            ["$$", "$$"],
+            ["\[\[", "\]\]"],
+        ],
+        svg: {
+            fontCache: "global",
+        },
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>

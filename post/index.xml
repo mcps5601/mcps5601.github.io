@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 隨英紛飛</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Mon, 15 Nov 2021 14:38:40 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Nov 2021 14:49:12 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trees and Distance: Basic Properties</title>
+      <link>https://mcps5601.github.io/post/graph_ch_2_1/</link>
+      <pubDate>Mon, 15 Nov 2021 14:49:12 +0800</pubDate>
+      
+      <guid>https://mcps5601.github.io/post/graph_ch_2_1/</guid>
+      <description>參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree.</description>
+    </item>
+    
     <item>
       <title>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</title>
       <link>https://mcps5601.github.io/post/radbert-cl/</link>
