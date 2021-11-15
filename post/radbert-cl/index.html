@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="zh-tw">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification - 隨英紛飛</title>
+
+  
+  
+  <meta name="description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al." />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://mcps5601.github.io/app.min.css" />
+
+  
+
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/theme.png" />
+
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://mcps5601.github.io/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://mcps5601.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://mcps5601.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification" />
+<meta property="og:description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mcps5601.github.io/post/radbert-cl/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-15T14:38:40+08:00" />
+<meta property="article:modified_time" content="2021-11-15T14:38:40+08:00" />
+
+
+  
+  <meta itemprop="name" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification">
+<meta itemprop="description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al."><meta itemprop="datePublished" content="2021-11-15T14:38:40+08:00" />
+<meta itemprop="dateModified" content="2021-11-15T14:38:40+08:00" />
+<meta itemprop="wordCount" content="370">
+<meta itemprop="keywords" content="論文,NLP,medicine," />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification"/>
+<meta name="twitter:description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al."/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="false">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="https://mcps5601.github.io/">隨英紛飛</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="twitter"
+      style="--url: url(./twitter.svg)"
+      href="https://twitter.com/mcps5601"
+      target="_blank"
+    ></a>
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/mcps5601"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Monday, November 15, 2021</time>
+      
+    </p>
+    <h1>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</h1>
+  </header>
+  <section class="post-content"><h2 id="論文資訊">論文資訊</h2>
+<ul>
+<li>會議: Machine Learning for Health (ML4H) 2021 (<a href="https://arxiv.org/pdf/2110.15426.pdf">論文連結</a>)</li>
+<li>作者單位: The University of Texas at Austin</li>
+</ul>
+<h2 id="研究動機">研究動機</h2>
+<ul>
+<li>BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好</li>
+</ul>
+<h2 id="本篇重點">本篇重點</h2>
+<ul>
+<li>Data augmentation
+<ul>
+<li>因為要做 contrastive pre-training learning</li>
+</ul>
+</li>
+<li>極度仰賴 <a href="https://arxiv.org/abs/2012.15466">Wu et al. (2020a)</a></li>
+</ul>
+<h2 id="related-work">Related work</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2005.12766">Fang and Xie (2020)</a> 針對正向資料使用句子層級的 back-translation</li>
+<li><a href="https://arxiv.org/abs/2012.15466">Wu et al. (2020a)</a> 整合4種句子層級的資料擴增
+<ul>
+<li>Word deletion</li>
+<li>Span deletion</li>
+<li>Reordering</li>
+<li>Synonym substitution</li>
+</ul>
+</li>
+</ul>
+<h2 id="方法">方法</h2>
+<ul>
+<li>在 pre-training 的部分進行改進
+<ul>
+<li>利用 Contrastive pre-training 來增加模型在任務上的事實確認能力</li>
+</ul>
+</li>
+<li>資料: radiology reports
+<ul>
+<li>MIMIC-CXR (<a href="https://www.nature.com/articles/s41597-019-0322-0">Johnson et al., 2019</a>)</li>
+</ul>
+</li>
+<li>資料答案: 使用 CheXpert (<a href="https://arxiv.org/pdf/1901.07031.pdf">Irvin et al., 2019</a>)，供 fine-tuning 時使用</li>
+</ul>
+<h3 id="資料擴增">資料擴增</h3>
+<h4 id="info-preservation-module">Info-preservation module</h4>
+<ul>
+<li>對應論文 Section 3.2.1</li>
+<li>目的: 確定 augmented reports 仍然保有重要概念 (concepts)</li>
+<li>方法: rule-based (類似於 <a href="https://aclanthology.org/2020.semeval-1.236.pdf">Dynamic-LCS</a>)
+<ul>
+<li>先對 augmented reports 做 lemmatization</li>
+<li>將 RadLex ontology 中的 concepts 與 augmented reports 做 greedy match
+<ul>
+<li>
+<blockquote>
+<p>longer matches are returned when possible</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="處理-negations-和-uncertainties">處理 Negations 和 Uncertainties</h4>
+<ul>
+<li>Negations
+<ul>
+<li>建立含有30種 negations 寫法的字典
+<ul>
+<li>not, without, clear of, ruled out, free of, disappearance of, without evidence of, no evidence of, absent, miss, &hellip;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Uncertainty
+<ul>
+<li>參照 <a href="https://www.sciencedirect.com/science/article/abs/pii/S1751157717301712?via%3Dihub">Chen et al., 2018</a></li>
+<li>
+<blockquote>
+<p>we create a dictionary of uncertainty keywords with a wide range of uncertain types, from speculations to inconsistencies present in the reports</p>
+</blockquote>
+</li>
+<li>同樣是建立字典，但是細節沒有提及</li>
+</ul>
+</li>
+<li>使用 <a href="https://arxiv.org/pdf/1712.05898.pdf">NegBio</a> 的作法來處理 Negations 和 Uncertainties</li>
+</ul>
+</li>
+</ul>
+<h4 id="sent-level-augmentation">Sent-level augmentation</h4>
+<ol>
+<li>斷句</li>
+<li>random word / phrase dropping (<a href="https://arxiv.org/abs/2012.15466">Wu et al., 2020</a>)
+<ul>
+<li>同時利用 info-preservation module 來確定轉換後的句子有保留重要概念</li>
+<li>丟棄沒有 match 到任何疾病的句子</li>
+</ul>
+</li>
+</ol>
+<h4 id="doc-level-augmentation-report-層級">Doc-level augmentation (report 層級)</h4>
+<ol>
+<li>前處理:
+<ul>
+<li>去除多的空白、換行</li>
+<li>刪去不想要的字</li>
+</ul>
+</li>
+<li>Word deletion / Span deletion / Reordering / Synonym substitution (<a href="https://arxiv.org/abs/2012.15466">Wu et al., 2020</a>)
+<ul>
+<li>同時利用 info-preservation module 來確定轉換後的 report 有保留重要概念</li>
+</ul>
+</li>
+</ol>
+<h3 id="contrastive-pre-training">Contrastive pre-training</h3>
+<ul>
+<li>使用 SimCLR (<a href="http://proceedings.mlr.press/v119/chen20j/chen20j.pdf">Chen et al., 2020</a>) 架構</li>
+<li>本篇依據資料擴增手段的不同提出3種算法，整理如下:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Algorithm 1</th>
+<th>Algorithm 2</th>
+<th>Algorithm 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Negation/Uncertainty</td>
+<td>-</td>
+<td>只保留 positives (確實有病)</td>
+<td>皆保留 (有病+沒病)</td>
+</tr>
+<tr>
+<td>類型</td>
+<td>Doc-level</td>
+<td>Sent-level</td>
+<td>Sent-level</td>
+</tr>
+<tr>
+<td>相同的 view</td>
+<td>同病人的報告</td>
+<td>相同的疾病的句子</td>
+<td>相同事實的句子 (確定有該疾病)</td>
+</tr>
+<tr>
+<td>不同的 view</td>
+<td>不同病人的報告</td>
+<td>不同疾病的句子</td>
+<td>不同事實的句子 (沒有該疾病或是有不同疾病)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="模型">模型</h4>
+<p><img src="https://i.imgur.com/8oZNIjK.png" alt=""></p>
+<ul>
+<li>Encoder 架構 $f$ 使用 BlueBert (<a href="https://arxiv.org/pdf/1906.05474.pdf">Peng et al., 2019</a>)</li>
+<li>view 1 和 view 2 就是原始 report 跟其擴增後的版本</li>
+<li>views 經過 $f$ 之後，取 <code>CLS</code> token 的輸出</li>
+<li>Projection Head $g$ 為兩層 hidden size 為 768 的 MLP
+<ul>
+<li>其中包含 RELU 和 Batch normalization (BN)</li>
+<li><code>CLS</code> token =&gt; BN =&gt; MLP =&gt; RELU =&gt; BN =&gt; MLP</li>
+</ul>
+</li>
+<li>Fine-tuning 時期拔掉 Projection Head $g$</li>
+</ul>
+<h2 id="實驗">實驗</h2>
+<h3 id="table-4">Table 4</h3>
+<ul>
+<li>比較 不同模型在 687 篇 reports (test set) 的分數</li>
+<li>以平均分數來說 Algorithm 3 &gt; Algorithm 2 &gt; Algorithm 1 &gt; CheXbert &gt; CheXpert</li>
+</ul>
+<h3 id="table-5">Table 5</h3>
+<ul>
+<li>比較不同的 pre-trained model 的影響</li>
+<li>用 contrastive learning 進行 pre-training 至少可贏 6 個百分點</li>
+</ul>
+<h3 id="table-6">Table 6</h3>
+<ul>
+<li>舉幾個句子來算 cos similarity，驗證 RadBERT-CL 的事實辨別能力</li>
+</ul>
+<p><img src="https://i.imgur.com/AxO1wQN.png" alt=""></p>
+</section>
+
+  
+  
+  <footer class="post-tags">
+     
+    <a href="https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87">論文</a>
+     
+    <a href="https://mcps5601.github.io/tags/nlp">NLP</a>
+     
+    <a href="https://mcps5601.github.io/tags/medicine">medicine</a>
+    
+  </footer>
+  
+
+  
+  
+  
+  <nav class="post-nav">
+     
+    <a class="next" href="https://mcps5601.github.io/post/sbert/"><span>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2021 <a href="https://mcps5601.github.io/">隨英紛飛</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+    <script>
+    MathJax = {
+        tex: {
+            inlineMath: [["$", "$"]],
+        },
+        displayMath: [
+            ["$$", "$$"],
+            ["\[\[", "\]\]"],
+        ],
+        svg: {
+            fontCache: "global",
+        },
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </body>
+</html>

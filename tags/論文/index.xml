@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>BERT on 隨英紛飛</title>
-    <link>https://mcps5601.github.io/tags/bert/</link>
-    <description>Recent content in BERT on 隨英紛飛</description>
+    <title>論文 on 隨英紛飛</title>
+    <link>https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87/</link>
+    <description>Recent content in 論文 on 隨英紛飛</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 07 Oct 2021 22:25:52 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/tags/bert/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Nov 2021 14:38:40 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</title>
+      <link>https://mcps5601.github.io/post/radbert-cl/</link>
+      <pubDate>Mon, 15 Nov 2021 14:38:40 +0800</pubDate>
+      
+      <guid>https://mcps5601.github.io/post/radbert-cl/</guid>
+      <description>論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al.</description>
+    </item>
+    
     <item>
       <title>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</title>
       <link>https://mcps5601.github.io/post/sbert/</link>
