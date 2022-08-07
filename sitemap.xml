@@ -2,13 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mcps5601.github.io/tags/math/</loc>
-    <lastmod>2021-11-15T14:49:12+08:00</lastmod>
+    <loc>https://mcps5601.github.io/tags/bert/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mcps5601.github.io/tags/nlp/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
   </url><url>
     <loc>https://mcps5601.github.io/post/</loc>
-    <lastmod>2021-11-15T14:49:12+08:00</lastmod>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
   </url><url>
     <loc>https://mcps5601.github.io/tags/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mcps5601.github.io/post/umls-bert/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mcps5601.github.io/tags/%E7%94%9F%E9%86%AB/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mcps5601.github.io/</loc>
+    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
+  </url><url>
+    <loc>https://mcps5601.github.io/tags/math/</loc>
     <lastmod>2021-11-15T14:49:12+08:00</lastmod>
   </url><url>
     <loc>https://mcps5601.github.io/post/graph_ch_2_1/</loc>
@@ -17,23 +35,11 @@
     <loc>https://mcps5601.github.io/tags/%E5%9C%96%E5%BD%A2%E7%90%86%E8%AB%96/</loc>
     <lastmod>2021-11-15T14:49:12+08:00</lastmod>
   </url><url>
-    <loc>https://mcps5601.github.io/</loc>
-    <lastmod>2021-11-15T14:49:12+08:00</lastmod>
-  </url><url>
     <loc>https://mcps5601.github.io/tags/medicine/</loc>
-    <lastmod>2021-11-15T14:38:40+08:00</lastmod>
-  </url><url>
-    <loc>https://mcps5601.github.io/tags/nlp/</loc>
     <lastmod>2021-11-15T14:38:40+08:00</lastmod>
   </url><url>
     <loc>https://mcps5601.github.io/post/radbert-cl/</loc>
     <lastmod>2021-11-15T14:38:40+08:00</lastmod>
-  </url><url>
-    <loc>https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87/</loc>
-    <lastmod>2021-11-15T14:38:40+08:00</lastmod>
-  </url><url>
-    <loc>https://mcps5601.github.io/tags/bert/</loc>
-    <lastmod>2021-10-07T22:25:52+08:00</lastmod>
   </url><url>
     <loc>https://mcps5601.github.io/post/sbert/</loc>
     <lastmod>2021-10-07T22:25:52+08:00</lastmod>
