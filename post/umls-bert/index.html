@@ -67,19 +67,19 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://hugo-paper.vercel.app/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="https://mcps5601.github.io/main.min.css" />
 
   
   <script
     defer
-    src="https://hugo-paper.vercel.app/highlight.min.js"
+    src="https://mcps5601.github.io/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
 
   
    
-  <link rel="preload" as="image" href="https://hugo-paper.vercel.app/theme.png" />
+  <link rel="preload" as="image" href="https://mcps5601.github.io/theme.png" />
 
   
   
@@ -87,16 +87,16 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
   
 
   
-  <link rel="preload" as="image" href="https://hugo-paper.vercel.app/scholar.svg" />
+  <link rel="preload" as="image" href="https://mcps5601.github.io/scholar.svg" />
   
-  <link rel="preload" as="image" href="https://hugo-paper.vercel.app/twitter.svg" />
+  <link rel="preload" as="image" href="https://mcps5601.github.io/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://hugo-paper.vercel.app/github.svg" />
+  <link rel="preload" as="image" href="https://mcps5601.github.io/github.svg" />
   
 
   
-  <link rel="icon" href="https://hugo-paper.vercel.app/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://hugo-paper.vercel.app/apple-touch-icon.png" />
+  <link rel="icon" href="https://mcps5601.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://mcps5601.github.io/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.88.1" />
@@ -116,7 +116,7 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
 主要方法 使用 MIMIC-III NOTEEVENTS 來預訓練 BERT，搭配以下兩種方法來使用 UMLS 知識
 UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddings, positional embeddings, segment embeddings)，本篇還加入了 semantic type embeddings: $$ ST^\top s_w $$ $ST$: semantic embedding matrix ($ST \in\mathbb{R}^{D_s\times d}$)  $D_s$: (基於MIMIC-III的) 字典中所可以對應到的 UMLS semantic types 總數 $d$: Transformer layer 的 hidden size   $s_w$: 任意一個字 $w$ 的 one-hot semantic vector ($s_w\in \mathbb{R}^{D_s}$)  其中每一個 item 代表一種 semantic type 如果 $w$ 完全對應不到 UMLS 的 semantic type 則 $s_w$ 全為 0    MLM  MLM 的目標改為多類別，即模型也必須要預測出與目標字有相同 CUI 的其他寫法   重要發現  UmlsBERT 可以提高 MEdNLI 跟其他4個 NER 資料集的表現 (Table 3) UmlsBERT 的預訓練過程可以使模型更能區分出不同的 UMLS semantic types (Figure 3)  創新的部份  運用 UMLS domain knowledge  缺點  沒有與 BlueBERT 比較 實驗著重在 NER 的部份 找出相近醫學字的實驗中 (Table 4)，BERT 並沒有表現特別差  我的問題  不知道 semantic embedding matrix $ST$ 如何初始化，以及 $ST$ 是否為可訓練之參數  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hugo-paper.vercel.app/post/umls-bert/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://mcps5601.github.io/post/umls-bert/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-07T11:54:01+08:00" />
 <meta property="article:modified_time" content="2022-08-07T11:54:01+08:00" />
 
@@ -145,7 +145,7 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
-      href="https://hugo-paper.vercel.app/"
+      href="https://mcps5601.github.io/"
       >隨英紛飛</a
     >
     <div
@@ -343,25 +343,25 @@ $$</li>
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://hugo-paper.vercel.app/tags/%E8%AB%96%E6%96%87"
+      href="https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87"
       >論文</a
     >
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://hugo-paper.vercel.app/tags/nlp"
+      href="https://mcps5601.github.io/tags/nlp"
       >NLP</a
     >
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://hugo-paper.vercel.app/tags/bert"
+      href="https://mcps5601.github.io/tags/bert"
       >BERT</a
     >
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://hugo-paper.vercel.app/tags/%E7%94%9F%E9%86%AB"
+      href="https://mcps5601.github.io/tags/%E7%94%9F%E9%86%AB"
       >生醫</a
     >
     
@@ -376,7 +376,7 @@ $$</li>
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://hugo-paper.vercel.app/post/graph_ch_2_1/"
+      href="https://mcps5601.github.io/post/graph_ch_2_1/"
       ><span>Trees and Distance: Basic Properties</span><span class="ml-1.5">→</span></a
     >
     
@@ -398,7 +398,7 @@ $$</li>
 >
   <div class="mr-auto">
     &copy; 2023
-    <a class="link" href="https://hugo-paper.vercel.app/">隨英紛飛</a>
+    <a class="link" href="https://mcps5601.github.io">隨英紛飛</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a
