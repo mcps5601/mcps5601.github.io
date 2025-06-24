@@ -65,19 +65,19 @@
   
   
   
-  <link rel="preload stylesheet" as="style" href="https://mcps5601.github.io/main.min.css" />
+  <link rel="preload stylesheet" as="style" href="https://yingjialin.org/main.min.css" />
 
   
   <script
     defer
-    src="https://mcps5601.github.io/highlight.min.js"
+    src="https://yingjialin.org/highlight.min.js"
     onload="hljs.initHighlightingOnLoad();"
   ></script>
   
 
   
    
-  <link rel="preload" as="image" href="https://mcps5601.github.io/theme.png" />
+  <link rel="preload" as="image" href="https://yingjialin.org/theme.png" />
 
   
   
@@ -85,16 +85,16 @@
   
 
   
-  <link rel="preload" as="image" href="https://mcps5601.github.io/scholar.svg" />
+  <link rel="preload" as="image" href="https://yingjialin.org/scholar.svg" />
   
-  <link rel="preload" as="image" href="https://mcps5601.github.io/twitter.svg" />
+  <link rel="preload" as="image" href="https://yingjialin.org/twitter.svg" />
   
-  <link rel="preload" as="image" href="https://mcps5601.github.io/github.svg" />
+  <link rel="preload" as="image" href="https://yingjialin.org/github.svg" />
   
 
   
-  <link rel="icon" href="https://mcps5601.github.io/favicon.ico" />
-  <link rel="apple-touch-icon" href="https://mcps5601.github.io/apple-touch-icon.png" />
+  <link rel="icon" href="https://yingjialin.org/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://yingjialin.org/apple-touch-icon.png" />
 
   
   <meta name="generator" content="Hugo 0.88.1" />
@@ -112,7 +112,7 @@
   <meta property="og:title" content="Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks" />
 <meta property="og:description" content="論文資訊  會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mcps5601.github.io/post/sbert/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://yingjialin.org/post/sbert/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-10-07T22:25:52+08:00" />
 <meta property="article:modified_time" content="2021-10-07T22:25:52+08:00" />
 
@@ -137,7 +137,7 @@
   <div class="relative z-50 mr-auto flex items-center">
     <a
       class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
-      href="https://mcps5601.github.io/"
+      href="https://yingjialin.org/"
       >Ying-Jia Lin</a
     >
     <div
@@ -407,25 +407,25 @@
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://mcps5601.github.io/tags/%E8%AB%96%E6%96%87"
+      href="https://yingjialin.org/tags/%E8%AB%96%E6%96%87"
       >論文</a
     >
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://mcps5601.github.io/tags/nlp"
+      href="https://yingjialin.org/tags/nlp"
       >NLP</a
     >
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://mcps5601.github.io/tags/bert"
+      href="https://yingjialin.org/tags/bert"
       >BERT</a
     >
      
     <a
       class="mr-1.5 mb-1.5 rounded-lg bg-black/[3%] px-5 py-2 no-underline dark:bg-white/[8%]"
-      href="https://mcps5601.github.io/tags/sentence_embeddings"
+      href="https://yingjialin.org/tags/sentence_embeddings"
       >sentence_embeddings</a
     >
     
@@ -439,14 +439,14 @@
     
     <a
       class="flex w-1/2 items-center rounded-l-md p-6 pr-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://mcps5601.github.io/post/radbert-cl/"
+      href="https://yingjialin.org/post/radbert-cl/"
       ><span class="mr-1.5">←</span><span>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</span></a
     >
     
     
     <a
       class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
-      href="https://mcps5601.github.io/post/math-terms/"
+      href="https://yingjialin.org/post/math-terms/"
       ><span>Math Terms</span><span class="ml-1.5">→</span></a
     >
     
@@ -468,7 +468,7 @@
 >
   <div class="mr-auto">
     &copy; 2025
-    <a class="link" href="https://mcps5601.github.io">Ying-Jia Lin</a>
+    <a class="link" href="https://yingjialin.org">Ying-Jia Lin</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

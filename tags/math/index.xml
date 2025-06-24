@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>math on Ying-Jia Lin</title>
-    <link>https://mcps5601.github.io/tags/math/</link>
+    <link>https://yingjialin.org/tags/math/</link>
     <description>Recent content in math on Ying-Jia Lin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 15 Nov 2021 14:49:12 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Nov 2021 14:49:12 +0800</lastBuildDate><atom:link href="https://yingjialin.org/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Trees and Distance: Basic Properties</title>
-      <link>https://mcps5601.github.io/post/graph_ch_2_1/</link>
+      <link>https://yingjialin.org/post/graph_ch_2_1/</link>
       <pubDate>Mon, 15 Nov 2021 14:49:12 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/graph_ch_2_1/</guid>
+      <guid>https://yingjialin.org/post/graph_ch_2_1/</guid>
       <description>參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree.</description>
     </item>
     
     <item>
       <title>Math Terms</title>
-      <link>https://mcps5601.github.io/post/math-terms/</link>
+      <link>https://yingjialin.org/post/math-terms/</link>
       <pubDate>Tue, 02 Mar 2021 14:11:38 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/math-terms/</guid>
+      <guid>https://yingjialin.org/post/math-terms/</guid>
       <description>數學證明常用名詞  Definition (定義): 解釋某個數學用語的意義 Theorem (定理): 重要的數學敘述或理論，通常經由證明而得 Axiom (公理): 普遍可以被接受且不用經過證明的現象或敘述 Proposition (命題): 和定理意涵相似，可能是重要程度較低的小結果 Lemma (引理): 輔助證明以引導出定理的小結果，因為證明定理的過程可能篇幅很長 Remark (評論): 對於定理或證明結果所引申出來的敘述 Corollary (推論): 基於定理來進一步推導的論述，通常也有證明輔助  </description>
     </item>
     

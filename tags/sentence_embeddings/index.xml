@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sentence_embeddings on Ying-Jia Lin</title>
-    <link>https://mcps5601.github.io/tags/sentence_embeddings/</link>
+    <link>https://yingjialin.org/tags/sentence_embeddings/</link>
     <description>Recent content in sentence_embeddings on Ying-Jia Lin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 07 Oct 2021 22:25:52 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/tags/sentence_embeddings/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 22:25:52 +0800</lastBuildDate><atom:link href="https://yingjialin.org/tags/sentence_embeddings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</title>
-      <link>https://mcps5601.github.io/post/sbert/</link>
+      <link>https://yingjialin.org/post/sbert/</link>
       <pubDate>Thu, 07 Oct 2021 22:25:52 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/sbert/</guid>
+      <guid>https://yingjialin.org/post/sbert/</guid>
       <description>論文資訊  會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$</description>
     </item>
     

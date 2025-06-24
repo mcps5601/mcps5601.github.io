@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Ying-Jia Lin</title>
-    <link>https://mcps5601.github.io/categories/</link>
+    <link>https://yingjialin.org/categories/</link>
     <description>Recent content in Categories on Ying-Jia Lin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright><atom:link href="https://mcps5601.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright><atom:link href="https://yingjialin.org/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

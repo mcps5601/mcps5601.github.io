@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ying-Jia Lin</title>
-    <link>https://mcps5601.github.io/</link>
+    <link>https://yingjialin.org/</link>
     <description>Recent content on Ying-Jia Lin</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 07 Aug 2022 11:54:01 +0800</lastBuildDate><atom:link href="https://mcps5601.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Aug 2022 11:54:01 +0800</lastBuildDate><atom:link href="https://yingjialin.org/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ying-Jia Lin (林英嘉)</title>
-      <link>https://mcps5601.github.io/about/</link>
+      <link>https://yingjialin.org/about/</link>
       <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://mcps5601.github.io/about/</guid>
+      <guid>https://yingjialin.org/about/</guid>
       <description>Assistant Professor at Department of Artificial Intelligence, College of Intelligent Computing, Chang Gung University Email: yjlin@cgu.edu.tw
 Office: B1412, Management Building (14-th floor), No 259, Wenhua 1st Rd, Guishan Dist, Taoyuan City 33302, Taiwan.
 💡Prospective students are welcome!! Please contact me via email.
@@ -22,10 +22,10 @@ Office: B1412, Management Building (14-th floor), No 259, Wenhua 1st Rd, Guishan
     
     <item>
       <title>UmlsBERT</title>
-      <link>https://mcps5601.github.io/post/umls-bert/</link>
+      <link>https://yingjialin.org/post/umls-bert/</link>
       <pubDate>Sun, 07 Aug 2022 11:54:01 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/umls-bert/</guid>
+      <guid>https://yingjialin.org/post/umls-bert/</guid>
       <description>Info  會議: NAACL 2021 (論文連結)(code連結) 作者單位: University of Waterloo  研究動機 BioBERT 跟 Clinical BERT 在訓練階段並沒有利用到如 UMLS(Unified Medical Language System) 這種專家知識
 主要方法 使用 MIMIC-III NOTEEVENTS 來預訓練 BERT，搭配以下兩種方法來使用 UMLS 知識
 UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddings, positional embeddings, segment embeddings)，本篇還加入了 semantic type embeddings: $$ ST^\top s_w $$ $ST$: semantic embedding matrix ($ST \in\mathbb{R}^{D_s\times d}$)  $D_s$: (基於MIMIC-III的) 字典中所可以對應到的 UMLS semantic types 總數 $d$: Transformer layer 的 hidden size   $s_w$: 任意一個字 $w$ 的 one-hot semantic vector ($s_w\in \mathbb{R}^{D_s}$)  其中每一個 item 代表一種 semantic type 如果 $w$ 完全對應不到 UMLS 的 semantic type 則 $s_w$ 全為 0    MLM  MLM 的目標改為多類別，即模型也必須要預測出與目標字有相同 CUI 的其他寫法   重要發現  UmlsBERT 可以提高 MEdNLI 跟其他4個 NER 資料集的表現 (Table 3) UmlsBERT 的預訓練過程可以使模型更能區分出不同的 UMLS semantic types (Figure 3)  創新的部份  運用 UMLS domain knowledge  缺點  沒有與 BlueBERT 比較 實驗著重在 NER 的部份 找出相近醫學字的實驗中 (Table 4)，BERT 並沒有表現特別差  我的問題  不知道 semantic embedding matrix $ST$ 如何初始化，以及 $ST$ 是否為可訓練之參數  </description>
@@ -33,37 +33,37 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
     
     <item>
       <title>Trees and Distance: Basic Properties</title>
-      <link>https://mcps5601.github.io/post/graph_ch_2_1/</link>
+      <link>https://yingjialin.org/post/graph_ch_2_1/</link>
       <pubDate>Mon, 15 Nov 2021 14:49:12 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/graph_ch_2_1/</guid>
+      <guid>https://yingjialin.org/post/graph_ch_2_1/</guid>
       <description>參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree.</description>
     </item>
     
     <item>
       <title>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</title>
-      <link>https://mcps5601.github.io/post/radbert-cl/</link>
+      <link>https://yingjialin.org/post/radbert-cl/</link>
       <pubDate>Mon, 15 Nov 2021 14:38:40 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/radbert-cl/</guid>
+      <guid>https://yingjialin.org/post/radbert-cl/</guid>
       <description>論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al.</description>
     </item>
     
     <item>
       <title>Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks</title>
-      <link>https://mcps5601.github.io/post/sbert/</link>
+      <link>https://yingjialin.org/post/sbert/</link>
       <pubDate>Thu, 07 Oct 2021 22:25:52 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/sbert/</guid>
+      <guid>https://yingjialin.org/post/sbert/</guid>
       <description>論文資訊  會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$</description>
     </item>
     
     <item>
       <title>Math Terms</title>
-      <link>https://mcps5601.github.io/post/math-terms/</link>
+      <link>https://yingjialin.org/post/math-terms/</link>
       <pubDate>Tue, 02 Mar 2021 14:11:38 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/post/math-terms/</guid>
+      <guid>https://yingjialin.org/post/math-terms/</guid>
       <description>數學證明常用名詞  Definition (定義): 解釋某個數學用語的意義 Theorem (定理): 重要的數學敘述或理論，通常經由證明而得 Axiom (公理): 普遍可以被接受且不用經過證明的現象或敘述 Proposition (命題): 和定理意涵相似，可能是重要程度較低的小結果 Lemma (引理): 輔助證明以引導出定理的小結果，因為證明定理的過程可能篇幅很長 Remark (評論): 對於定理或證明結果所引申出來的敘述 Corollary (推論): 基於定理來進一步推導的論述，通常也有證明輔助  </description>
     </item>
     
