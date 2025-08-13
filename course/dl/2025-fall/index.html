@@ -206,17 +206,19 @@
   
     window.addEventListener('DOMContentLoaded', () => {
       
-    document.querySelectorAll('.menu li > a').forEach(a => {
-      a.addEventListener('click', e => {
-        
-        if (document.documentElement.classList.contains('open')) {
-          const next = a.nextElementSibling;
-          if (next && next.classList.contains('submenu')) {
-            e.preventDefault();               
-            next.classList.toggle('open');    
-          }
+      
+      const menuRoot = document.querySelector('.menu');
+      menuRoot?.addEventListener('click', (e) => {
+        if (!document.documentElement.classList.contains('open')) return; 
+        const a = e.target.closest('a');
+        if (!a || !menuRoot.contains(a)) return;
+
+        const next = a.nextElementSibling;
+        if (next && next.classList.contains('submenu')) {
+          e.preventDefault(); 
+          const isOpen = next.classList.toggle('open');
+          a.setAttribute('aria-expanded', String(isOpen)); 
         }
-      });
     });
     
     document.querySelectorAll('.submenu.lvl1 > li').forEach(li => {
