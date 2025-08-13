@@ -208,7 +208,8 @@ Office: B1412, Management Building (14-th floor), No 259, Wenhua 1st Rd, Guishan
       setDark(localStorage.getItem('dark') !== 'true');
     });
   
-    
+    window.addEventListener('DOMContentLoaded', () => {
+      
     document.querySelectorAll('.menu li > a').forEach(a => {
       a.addEventListener('click', e => {
         
@@ -233,6 +234,7 @@ Office: B1412, Management Building (14-th floor), No 259, Wenhua 1st Rd, Guishan
         }
       });
     });
+  });
   </script>
 
   <div

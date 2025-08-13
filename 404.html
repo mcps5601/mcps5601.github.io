@@ -189,7 +189,8 @@
       setDark(localStorage.getItem('dark') !== 'true');
     });
   
-    
+    window.addEventListener('DOMContentLoaded', () => {
+      
     document.querySelectorAll('.menu li > a').forEach(a => {
       a.addEventListener('click', e => {
         
@@ -214,6 +215,7 @@
         }
       });
     });
+  });
   </script>
 
   <div

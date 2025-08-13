@@ -204,7 +204,8 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
       setDark(localStorage.getItem('dark') !== 'true');
     });
   
-    
+    window.addEventListener('DOMContentLoaded', () => {
+      
     document.querySelectorAll('.menu li > a').forEach(a => {
       a.addEventListener('click', e => {
         
@@ -229,6 +230,7 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
         }
       });
     });
+  });
   </script>
 
   <div
