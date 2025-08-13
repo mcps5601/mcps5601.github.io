@@ -203,6 +203,32 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
     btnDark.addEventListener('click', () => {
       setDark(localStorage.getItem('dark') !== 'true');
     });
+  
+    
+    document.querySelectorAll('.menu li > a').forEach(a => {
+      a.addEventListener('click', e => {
+        
+        if (document.documentElement.classList.contains('open')) {
+          const next = a.nextElementSibling;
+          if (next && next.classList.contains('submenu')) {
+            e.preventDefault();               
+            next.classList.toggle('open');    
+          }
+        }
+      });
+    });
+    
+    document.querySelectorAll('.submenu.lvl1 > li').forEach(li => {
+      li.addEventListener('mouseenter', () => {
+        const sub = li.querySelector('.submenu.lvl2');
+        if (!sub) return;
+        sub.classList.remove('from-right');
+        const rect = sub.getBoundingClientRect();
+        if (rect.right > window.innerWidth) {
+          sub.classList.add('from-right'); 
+        }
+      });
+    });
   </script>
 
   <div
@@ -211,19 +237,62 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
     
     
     <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="/about/"
-        >About</a
-      >
-      
-      <a
-        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
-        href="https://ila-lab.github.io/"
-        >Lab</a
-      >
-      
+      <ul class="menu flex flex-col lg:flex-row lg:items-center lg:space-x-6">
+        
+          <li class="relative group has-children-1">
+            
+              <a class="block text-center text-2xl leading-[5rem] lg:text-base" href="/about/">About</a>
+            
+          </li>
+        
+          <li class="relative group has-children-1">
+            
+              <a href="#" class="block text-center text-2xl leading-[5rem] lg:text-base">
+                Course <span class="ml-1">▾</span>
+              </a>
+
+              
+              <ul class="submenu lvl1 absolute left-0 top-full min-w-[220px]">
+                
+                  <li class="relative group has-children-2">
+                    
+                      <a href="#" class="block px-4 py-2">
+                        Deep Learning <span class="ml-1">▸</span>
+                      </a>
+                      
+                      <ul class="submenu lvl2 absolute left-full top-0 min-w-[220px]">
+                        
+                          <li><a class="block px-4 py-2" href="/course/dl/2025-fall/">2025 Fall</a></li>
+                        
+                          <li><a class="block px-4 py-2" href="https://github.com/mcps5601/CGUDL_2025_Spring">2025 Spring</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+                  <li class="relative group has-children-2">
+                    
+                      <a class="block px-4 py-2" href="/course/genai/">Generative AI (TAICA)</a>
+                    
+                  </li>
+                
+                  <li class="relative group has-children-2">
+                    
+                      <a class="block px-4 py-2" href="https://github.com/mcps5601/CGUNLP_2025_Spring">Natural Language Processing</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li class="relative group has-children-1">
+            
+              <a class="block text-center text-2xl leading-[5rem] lg:text-base" href="https://ila-lab.github.io/">Lab</a>
+            
+          </li>
+        
+      </ul>
     </nav>
     
 

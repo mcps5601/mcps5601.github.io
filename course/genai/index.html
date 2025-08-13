@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="en"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>生成式AI：文字與圖像生成的原理與實務 (2025 Fall) - Ying-Jia Lin</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="歡迎來到生成式AI：文字與圖像生成的原理與實務的課程頁面🎓
+本課程為TAICA所開設之課程，長庚大學校內屬於衛星課程，長庚大學學生可以 選修。
+課程基本資料  開授教師：蔡炎龍 副教授 (國立政治大學應用數學系) 校內協同教師：林英嘉 助理教授 (長庚大學人工智慧學系) 開課級別：大學部／研究所 授課語言：中文 學分數：3 上課時間：每週二 16:00–19:00 遠距上課位置：  Facebook【政大應數系直播中心】：https://facebook.com/groups/nccumathonline/ 課程 YouTube（含 1132 課程錄影）：https://www.youtube.com/@ive-iveai   協同教師 Office Hour：每週三 13:00–14:00，管理大樓14樓 1412室   課程概述 本課程兼具理論深度與實作樂趣，專為希望深入了解生成式 AI 技術與應用的學生設計。不論基礎或進階，課程將帶領同學探索生成式 AI 的無限可能。內容涵蓋神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models 等，並實作文字生成、圖像生成等多樣應用，使用的工具包括 OpenAI API、LangChain、HuggingFace、AISuite 等。
+ 課程目標  理解生成式 AI 的核心技術（神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models）。 實際運用 OpenAI API、LangChain、AISuite、HuggingFace、Fooocus 等工具開發應用。 探討生成式 AI 的社會與倫理挑戰，提出創新解決方案。 完成期末專題，整合所學內容並展示一個實用的生成式 AI 系統。   課程特色  循序漸進：從神經網路基礎到進階模型與應用。 實作為主、理論為輔：課堂使用 Colab 進行程式實作，搭配具挑戰性的課後作業。 涵蓋最新技術：掌握生成式 AI 發展趨勢。 多元應用場景：文字生成、圖像生成、對話機器人、Agentic AI 等。 強調倫理與應用：反思 AI 的社會影響，強調負責任使用。   課程內容大綱    週次 日期 主題 錄影 作業內容     1 9/2 課程介紹與生成式 AI 概述     2 9/9 神經網路的概念     3 9/16 紅極一時的生成對抗網路 (GAN)     4 9/23 大型語言模型基礎與 seq2seq 模型     5 9/30 Transformers 全攻略     6 10/7 大型語言模型（LLM）的應用與倫理議題的挑戰     7 10/14 打造自己的對話機器人（AISuite）     8 10/21 專家講座     9 10/28 檢索增強生成（RAG）的原理及實作     10 11/4 Agentic AI 與 AI Agents     11 11/11 變分自編碼器（VAE）與 Diffusion Models     12 11/18 文字生圖 AI 原理與實作（Diffusion Models 進階主題）     13 11/25 用 Fooocus 實現 Diffusion Models 的進階技術     14 12/2 生成式 AI 流行工具及應用範例     15 12/9 生成式 AI 應用與發展趨勢     16 12/16 線上期末專題成果分享（Gather." />
+  <meta name="author" content="Greetings!👨‍💻" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://yingjialin.org/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://yingjialin.org/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://yingjialin.org/theme.png" />
+
+  
+  
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://yingjialin.org/scholar.svg" />
+  
+  <link rel="preload" as="image" href="https://yingjialin.org/twitter.svg" />
+  
+  <link rel="preload" as="image" href="https://yingjialin.org/github.svg" />
+  
+
+  
+  <link rel="icon" href="https://yingjialin.org/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://yingjialin.org/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.88.1" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="生成式AI：文字與圖像生成的原理與實務 (2025 Fall)" />
+<meta property="og:description" content="歡迎來到生成式AI：文字與圖像生成的原理與實務的課程頁面🎓
+本課程為TAICA所開設之課程，長庚大學校內屬於衛星課程，長庚大學學生可以 選修。
+課程基本資料  開授教師：蔡炎龍 副教授 (國立政治大學應用數學系) 校內協同教師：林英嘉 助理教授 (長庚大學人工智慧學系) 開課級別：大學部／研究所 授課語言：中文 學分數：3 上課時間：每週二 16:00–19:00 遠距上課位置：  Facebook【政大應數系直播中心】：https://facebook.com/groups/nccumathonline/ 課程 YouTube（含 1132 課程錄影）：https://www.youtube.com/@ive-iveai   協同教師 Office Hour：每週三 13:00–14:00，管理大樓14樓 1412室   課程概述 本課程兼具理論深度與實作樂趣，專為希望深入了解生成式 AI 技術與應用的學生設計。不論基礎或進階，課程將帶領同學探索生成式 AI 的無限可能。內容涵蓋神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models 等，並實作文字生成、圖像生成等多樣應用，使用的工具包括 OpenAI API、LangChain、HuggingFace、AISuite 等。
+ 課程目標  理解生成式 AI 的核心技術（神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models）。 實際運用 OpenAI API、LangChain、AISuite、HuggingFace、Fooocus 等工具開發應用。 探討生成式 AI 的社會與倫理挑戰，提出創新解決方案。 完成期末專題，整合所學內容並展示一個實用的生成式 AI 系統。   課程特色  循序漸進：從神經網路基礎到進階模型與應用。 實作為主、理論為輔：課堂使用 Colab 進行程式實作，搭配具挑戰性的課後作業。 涵蓋最新技術：掌握生成式 AI 發展趨勢。 多元應用場景：文字生成、圖像生成、對話機器人、Agentic AI 等。 強調倫理與應用：反思 AI 的社會影響，強調負責任使用。   課程內容大綱    週次 日期 主題 錄影 作業內容     1 9/2 課程介紹與生成式 AI 概述     2 9/9 神經網路的概念     3 9/16 紅極一時的生成對抗網路 (GAN)     4 9/23 大型語言模型基礎與 seq2seq 模型     5 9/30 Transformers 全攻略     6 10/7 大型語言模型（LLM）的應用與倫理議題的挑戰     7 10/14 打造自己的對話機器人（AISuite）     8 10/21 專家講座     9 10/28 檢索增強生成（RAG）的原理及實作     10 11/4 Agentic AI 與 AI Agents     11 11/11 變分自編碼器（VAE）與 Diffusion Models     12 11/18 文字生圖 AI 原理與實作（Diffusion Models 進階主題）     13 11/25 用 Fooocus 實現 Diffusion Models 的進階技術     14 12/2 生成式 AI 流行工具及應用範例     15 12/9 生成式 AI 應用與發展趨勢     16 12/16 線上期末專題成果分享（Gather." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yingjialin.org/course/genai/" /><meta property="article:section" content="course" />
+
+
+
+
+  
+  <meta itemprop="name" content="生成式AI：文字與圖像生成的原理與實務 (2025 Fall)">
+<meta itemprop="description" content="歡迎來到生成式AI：文字與圖像生成的原理與實務的課程頁面🎓
+本課程為TAICA所開設之課程，長庚大學校內屬於衛星課程，長庚大學學生可以 選修。
+課程基本資料  開授教師：蔡炎龍 副教授 (國立政治大學應用數學系) 校內協同教師：林英嘉 助理教授 (長庚大學人工智慧學系) 開課級別：大學部／研究所 授課語言：中文 學分數：3 上課時間：每週二 16:00–19:00 遠距上課位置：  Facebook【政大應數系直播中心】：https://facebook.com/groups/nccumathonline/ 課程 YouTube（含 1132 課程錄影）：https://www.youtube.com/@ive-iveai   協同教師 Office Hour：每週三 13:00–14:00，管理大樓14樓 1412室   課程概述 本課程兼具理論深度與實作樂趣，專為希望深入了解生成式 AI 技術與應用的學生設計。不論基礎或進階，課程將帶領同學探索生成式 AI 的無限可能。內容涵蓋神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models 等，並實作文字生成、圖像生成等多樣應用，使用的工具包括 OpenAI API、LangChain、HuggingFace、AISuite 等。
+ 課程目標  理解生成式 AI 的核心技術（神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models）。 實際運用 OpenAI API、LangChain、AISuite、HuggingFace、Fooocus 等工具開發應用。 探討生成式 AI 的社會與倫理挑戰，提出創新解決方案。 完成期末專題，整合所學內容並展示一個實用的生成式 AI 系統。   課程特色  循序漸進：從神經網路基礎到進階模型與應用。 實作為主、理論為輔：課堂使用 Colab 進行程式實作，搭配具挑戰性的課後作業。 涵蓋最新技術：掌握生成式 AI 發展趨勢。 多元應用場景：文字生成、圖像生成、對話機器人、Agentic AI 等。 強調倫理與應用：反思 AI 的社會影響，強調負責任使用。   課程內容大綱    週次 日期 主題 錄影 作業內容     1 9/2 課程介紹與生成式 AI 概述     2 9/9 神經網路的概念     3 9/16 紅極一時的生成對抗網路 (GAN)     4 9/23 大型語言模型基礎與 seq2seq 模型     5 9/30 Transformers 全攻略     6 10/7 大型語言模型（LLM）的應用與倫理議題的挑戰     7 10/14 打造自己的對話機器人（AISuite）     8 10/21 專家講座     9 10/28 檢索增強生成（RAG）的原理及實作     10 11/4 Agentic AI 與 AI Agents     11 11/11 變分自編碼器（VAE）與 Diffusion Models     12 11/18 文字生圖 AI 原理與實作（Diffusion Models 進階主題）     13 11/25 用 Fooocus 實現 Diffusion Models 的進階技術     14 12/2 生成式 AI 流行工具及應用範例     15 12/9 生成式 AI 應用與發展趨勢     16 12/16 線上期末專題成果分享（Gather.">
+
+<meta itemprop="wordCount" content="213">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="生成式AI：文字與圖像生成的原理與實務 (2025 Fall)"/>
+<meta name="twitter:description" content="歡迎來到生成式AI：文字與圖像生成的原理與實務的課程頁面🎓
+本課程為TAICA所開設之課程，長庚大學校內屬於衛星課程，長庚大學學生可以 選修。
+課程基本資料  開授教師：蔡炎龍 副教授 (國立政治大學應用數學系) 校內協同教師：林英嘉 助理教授 (長庚大學人工智慧學系) 開課級別：大學部／研究所 授課語言：中文 學分數：3 上課時間：每週二 16:00–19:00 遠距上課位置：  Facebook【政大應數系直播中心】：https://facebook.com/groups/nccumathonline/ 課程 YouTube（含 1132 課程錄影）：https://www.youtube.com/@ive-iveai   協同教師 Office Hour：每週三 13:00–14:00，管理大樓14樓 1412室   課程概述 本課程兼具理論深度與實作樂趣，專為希望深入了解生成式 AI 技術與應用的學生設計。不論基礎或進階，課程將帶領同學探索生成式 AI 的無限可能。內容涵蓋神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models 等，並實作文字生成、圖像生成等多樣應用，使用的工具包括 OpenAI API、LangChain、HuggingFace、AISuite 等。
+ 課程目標  理解生成式 AI 的核心技術（神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models）。 實際運用 OpenAI API、LangChain、AISuite、HuggingFace、Fooocus 等工具開發應用。 探討生成式 AI 的社會與倫理挑戰，提出創新解決方案。 完成期末專題，整合所學內容並展示一個實用的生成式 AI 系統。   課程特色  循序漸進：從神經網路基礎到進階模型與應用。 實作為主、理論為輔：課堂使用 Colab 進行程式實作，搭配具挑戰性的課後作業。 涵蓋最新技術：掌握生成式 AI 發展趨勢。 多元應用場景：文字生成、圖像生成、對話機器人、Agentic AI 等。 強調倫理與應用：反思 AI 的社會影響，強調負責任使用。   課程內容大綱    週次 日期 主題 錄影 作業內容     1 9/2 課程介紹與生成式 AI 概述     2 9/9 神經網路的概念     3 9/16 紅極一時的生成對抗網路 (GAN)     4 9/23 大型語言模型基礎與 seq2seq 模型     5 9/30 Transformers 全攻略     6 10/7 大型語言模型（LLM）的應用與倫理議題的挑戰     7 10/14 打造自己的對話機器人（AISuite）     8 10/21 專家講座     9 10/28 檢索增強生成（RAG）的原理及實作     10 11/4 Agentic AI 與 AI Agents     11 11/11 變分自編碼器（VAE）與 Diffusion Models     12 11/18 文字生圖 AI 原理與實作（Diffusion Models 進階主題）     13 11/25 用 Fooocus 實現 Diffusion Models 的進階技術     14 12/2 生成式 AI 流行工具及應用範例     15 12/9 生成式 AI 應用與發展趨勢     16 12/16 線上期末專題成果分享（Gather."/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://yingjialin.org/"
+      >Ying-Jia Lin</a
+    >
+    <div
+      class="btn-dark text-[0] ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  
+    
+    document.querySelectorAll('.menu li > a').forEach(a => {
+      a.addEventListener('click', e => {
+        
+        if (document.documentElement.classList.contains('open')) {
+          const next = a.nextElementSibling;
+          if (next && next.classList.contains('submenu')) {
+            e.preventDefault();               
+            next.classList.toggle('open');    
+          }
+        }
+      });
+    });
+    
+    document.querySelectorAll('.submenu.lvl1 > li').forEach(li => {
+      li.addEventListener('mouseenter', () => {
+        const sub = li.querySelector('.submenu.lvl2');
+        if (!sub) return;
+        sub.classList.remove('from-right');
+        const rect = sub.getBoundingClientRect();
+        if (rect.right > window.innerWidth) {
+          sub.classList.add('from-right'); 
+        }
+      });
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      <ul class="menu flex flex-col lg:flex-row lg:items-center lg:space-x-6">
+        
+          <li class="relative group has-children-1">
+            
+              <a class="block text-center text-2xl leading-[5rem] lg:text-base" href="/about/">About</a>
+            
+          </li>
+        
+          <li class="relative group has-children-1">
+            
+              <a href="#" class="block text-center text-2xl leading-[5rem] lg:text-base">
+                Course <span class="ml-1">▾</span>
+              </a>
+
+              
+              <ul class="submenu lvl1 absolute left-0 top-full min-w-[220px]">
+                
+                  <li class="relative group has-children-2">
+                    
+                      <a href="#" class="block px-4 py-2">
+                        Deep Learning <span class="ml-1">▸</span>
+                      </a>
+                      
+                      <ul class="submenu lvl2 absolute left-full top-0 min-w-[220px]">
+                        
+                          <li><a class="block px-4 py-2" href="/course/dl/2025-fall/">2025 Fall</a></li>
+                        
+                          <li><a class="block px-4 py-2" href="https://github.com/mcps5601/CGUDL_2025_Spring">2025 Spring</a></li>
+                        
+                      </ul>
+                    
+                  </li>
+                
+                  <li class="relative group has-children-2">
+                    
+                      <a class="block px-4 py-2" href="/course/genai/">Generative AI (TAICA)</a>
+                    
+                  </li>
+                
+                  <li class="relative group has-children-2">
+                    
+                      <a class="block px-4 py-2" href="https://github.com/mcps5601/CGUNLP_2025_Spring">Natural Language Processing</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+          <li class="relative group has-children-1">
+            
+              <a class="block text-center text-2xl leading-[5rem] lg:text-base" href="https://ila-lab.github.io/">Lab</a>
+            
+          </li>
+        
+      </ul>
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./scholar.svg)"
+        href="https://scholar.google.com.tw/citations?user=TM4JxJkAAAAJ&hl=zh-TW&oi=ao"
+        target="_blank"
+        rel="me"
+      >
+        scholar
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./twitter.svg)"
+        href="https://twitter.com/mcps5601"
+        target="_blank"
+        rel="me"
+      >
+        twitter
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/mcps5601"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-16 pb-24 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">生成式AI：文字與圖像生成的原理與實務 (2025 Fall)</h1>
+
+    
+    <div class="text-sm opacity-60">
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p>歡迎來到<strong>生成式AI：文字與圖像生成的原理與實務</strong>的課程頁面🎓<br>
+本課程為TAICA所開設之課程，長庚大學校內屬於<a href="https://taicatw.net/satellite-courses/">衛星課程</a>，長庚大學學生可以 選修。</p>
+<h2 id="課程基本資料">課程基本資料</h2>
+<ul>
+<li><strong>開授教師</strong>：蔡炎龍 副教授 (國立政治大學應用數學系)</li>
+<li><strong>校內協同教師</strong>：林英嘉 助理教授 (長庚大學人工智慧學系)</li>
+<li><strong>開課級別</strong>：大學部／研究所</li>
+<li><strong>授課語言</strong>：中文</li>
+<li><strong>學分數</strong>：3</li>
+<li><strong>上課時間</strong>：每週二 16:00–19:00</li>
+<li><strong>遠距上課位置</strong>：
+<ul>
+<li>Facebook【政大應數系直播中心】：<a href="https://facebook.com/groups/nccumathonline/">https://facebook.com/groups/nccumathonline/</a></li>
+<li>課程 YouTube（含 1132 課程錄影）：<a href="https://www.youtube.com/@ive-iveai">https://www.youtube.com/@ive-iveai</a></li>
+</ul>
+</li>
+<li><strong>協同教師 Office Hour</strong>：每週三 13:00–14:00，管理大樓14樓 1412室</li>
+</ul>
+<hr>
+<h2 id="課程概述">課程概述</h2>
+<p>本課程兼具理論深度與實作樂趣，專為希望深入了解生成式 AI 技術與應用的學生設計。不論基礎或進階，課程將帶領同學探索生成式 AI 的無限可能。內容涵蓋神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models 等，並實作文字生成、圖像生成等多樣應用，使用的工具包括 OpenAI API、LangChain、HuggingFace、AISuite 等。</p>
+<hr>
+<h2 id="課程目標">課程目標</h2>
+<ol>
+<li>理解生成式 AI 的核心技術（神經網路、GAN、Transformer、大型語言模型、RAG、AI Agents、Diffusion Models）。</li>
+<li>實際運用 OpenAI API、LangChain、AISuite、HuggingFace、Fooocus 等工具開發應用。</li>
+<li>探討生成式 AI 的社會與倫理挑戰，提出創新解決方案。</li>
+<li>完成期末專題，整合所學內容並展示一個實用的生成式 AI 系統。</li>
+</ol>
+<hr>
+<h2 id="課程特色">課程特色</h2>
+<ul>
+<li>循序漸進：從神經網路基礎到進階模型與應用。</li>
+<li>實作為主、理論為輔：課堂使用 Colab 進行程式實作，搭配具挑戰性的課後作業。</li>
+<li>涵蓋最新技術：掌握生成式 AI 發展趨勢。</li>
+<li>多元應用場景：文字生成、圖像生成、對話機器人、Agentic AI 等。</li>
+<li>強調倫理與應用：反思 AI 的社會影響，強調負責任使用。</li>
+</ul>
+<hr>
+<h2 id="課程內容大綱">課程內容大綱</h2>
+<table>
+<thead>
+<tr>
+<th>週次</th>
+<th>日期</th>
+<th>主題</th>
+<th>錄影</th>
+<th>作業內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>9/2</td>
+<td>課程介紹與生成式 AI 概述</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>9/9</td>
+<td>神經網路的概念</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>9/16</td>
+<td>紅極一時的生成對抗網路 (GAN)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>9/23</td>
+<td>大型語言模型基礎與 seq2seq 模型</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>9/30</td>
+<td>Transformers 全攻略</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>10/7</td>
+<td>大型語言模型（LLM）的應用與倫理議題的挑戰</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>10/14</td>
+<td>打造自己的對話機器人（AISuite）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>10/21</td>
+<td>專家講座</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>10/28</td>
+<td>檢索增強生成（RAG）的原理及實作</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>11/4</td>
+<td>Agentic AI 與 AI Agents</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>11/11</td>
+<td>變分自編碼器（VAE）與 Diffusion Models</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>11/18</td>
+<td>文字生圖 AI 原理與實作（Diffusion Models 進階主題）</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>11/25</td>
+<td>用 Fooocus 實現 Diffusion Models 的進階技術</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>12/2</td>
+<td>生成式 AI 流行工具及應用範例</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>12/9</td>
+<td>生成式 AI 應用與發展趨勢</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>12/16</td>
+<td>線上期末專題成果分享（Gather.town）</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="成績評量方式">成績評量方式</h2>
+<ul>
+<li><strong>作業與反思</strong>：75%
+<ul>
+<li>每次作業滿分 10 分，兩週內繳交。可使用 LLM 協助，但若直接用 prompt 生成即可得出的結果，最高得分 3 分。</li>
+<li>批改方式：採用政大助教每次作業的評分標準。</li>
+</ul>
+</li>
+<li><strong>期末專案</strong>：20%
+<ul>
+<li>完成一個生成式 AI 應用專案。</li>
+<li>依本課程蔡老師規定，會以學生投稿、擇優的方式，獲選同學參加期末專案分享。因此，若長庚學生獲選，將獲得額外加分。</li>
+</ul>
+</li>
+<li><strong>上課參與</strong>：5%
+<ul>
+<li>鼓勵長庚同學在「直播」時間參與課程，只要在「直播」時間在聊天室<strong>提出問題</strong>，將列入期末評分考量。</li>
+<li>完成發問後請填寫表單：https://forms.gle/mbJA4mkvXWGGdWFU8</li>
+</ul>
+</li>
+<li><strong>額外加分</strong>：<br>
+課程有「閃電秀」安排，同學們可自由報名，在每次上課第三節時，以 5 分鐘內的時間，分享自己對生成式 AI 相關的心得。每次直播課程中，最多可接受 5 位同學的分享，若有長庚學生進行分享，該生將獲得額外加分。</li>
+</ul>
+<hr>
+<h2 id="課程要求">課程要求</h2>
+<ol>
+<li>會使用 Google Colab 雲端運算平台，請同學準備好自己的 Google 帳號。本課程的作業應該免費版就足夠，但可以考慮自己狀況是否升級。</li>
+<li>建議 (非要求) 於 <a href="https://platform.openai.com/">https://platform.openai.com/</a> 儲值使用 OpenAI API 的 credit，應該 5 美金就完全足夠課程的需求。課程中我們還是會提供其他免費的方案，但使用 OpenAI API 可能會比較方便 (特別對技術不是那麼熟悉的同學)。</li>
+<li>本課程嚴禁抄襲，包括抄襲網路上的作品，或者直接抄襲生成式 AI 產出者，皆是不可接受的。本課程是生成式 AI 課程，使用大型語言模型協作，不但是允許，甚至是鼓勵的。這裡的抄襲是直接下一個 prompt 就能產出的結果，直接使用LLM的輸出當作業是不能接受的。</li>
+</ol>
+<hr>
+<h2 id="參考資源">參考資源</h2>
+<ul>
+<li>113-2 課程講義：<a href="https://yenlung.me/1132GenAI">https://yenlung.me/1132GenAI</a></li>
+<li>113-2 課程錄影：<a href="https://youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv&amp;si=2ZJBizkhoAmmFwXv">https://youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv&amp;si=2ZJBizkhoAmmFwXv</a></li>
+<li>113-2 長庚大學本課程之衛星教師 - <a href="https://yangchihyuan.github.io">楊智淵老師</a>課程頁面：<a href="https://yangchihyuan.github.io/courses/GenerativeAI2025">https://yangchihyuan.github.io/courses/GenerativeAI2025</a></li>
+</ul>
+</section>
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2025
+    <a class="link" href="https://yingjialin.org">Ying-Jia Lin</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >Theme Paper</a
+  >
+  <div style="margin-bottom: 10px;">
+    
+  <a href="https://info.flagcounter.com/Bxzj"><img src="https://s05.flagcounter.com/count2/Bxzj/bg_FFFFFF/txt_000000/border_CCCCCC/columns_5/maxflags_15/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+  </div>
+</footer>
+  </body>
+</html>

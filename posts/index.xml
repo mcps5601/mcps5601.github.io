@@ -1,50 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Yingjia&#39;s blog</title>
-    <link>https://mcps5601.github.io/posts/</link>
-    <description>Recent content in Posts on Yingjia&#39;s blog</description>
+    <title>Posts on Ying-Jia Lin</title>
+    <link>https://yingjialin.org/posts/</link>
+    <description>Recent content in Posts on Ying-Jia Lin</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <lastBuildDate>Thu, 07 Oct 2021 22:25:52 +0800</lastBuildDate>
-    
-	<atom:link href="https://mcps5601.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>My Second Post</title>
-      <link>https://mcps5601.github.io/posts/my-second-post/</link>
-      <pubDate>Thu, 07 Oct 2021 22:25:52 +0800</pubDate>
-      
-      <guid>https://mcps5601.github.io/posts/my-second-post/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sentence-BERT</title>
-      <link>https://mcps5601.github.io/posts/sbert/</link>
-      <pubDate>Thu, 07 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://mcps5601.github.io/posts/sbert/</guid>
-      <description>會議: EMNLP 2019 (論文連結)(code連結) 作者單位: UKPLab 主要任務: semantic textual similarity (STS)  快速重點  這是一個 sentence embeddings 的工作 提出 SBERT 和 SRoBERTa  基於 siamese 和 triplet loss 架構   在 NLI 資料集上進行 fine-tuning，表現比 InferSent、Universal Sentence Encoder 還要好 在 STS 資料集上贏過 InferSent 11.7 分、贏過 Universal Sentence Encoder 5.5 分 在 SentEval 的兩個任務上得到 2.1 和 2.6 分的提升  背景 BERT  將兩個句子以SEP合起來當成1個句子 在 inference 時會很沒有效率  inference 時是要找到最佳的配對組合 假設有10,000個句子，BERT 就要做 n*(n-1)/2 次，共 49,995,000 次  10,000個句子只會找本身以外的10,000-1個句子 因為是找成對句子，所以總次數除以2   以 V100 來做運算的話需要花費 65 小時    方法 模型  對 BERT/ RoBERTa 的輸出使用池化 (pooling) 的方法進行處理: (1) 取 CLS token (2) 取 MEAN (3) 取 MAX 來得到固定大小 (fixed sized) 的句向量 本論文預設使用 ==MEAN== 作為 pooling 方法  分類任務的最佳化方式   $o=\text{softmax}(W_t(u,v,|u-v|))$</description>
-    </item>
-    
+    <language>en</language>
+    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 02 Mar 2021 14:11:38 +0800</lastBuildDate><atom:link href="https://yingjialin.org/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math Terms</title>
-      <link>https://mcps5601.github.io/posts/math-terms/</link>
+      <link>https://yingjialin.org/posts/math-terms/</link>
       <pubDate>Tue, 02 Mar 2021 14:11:38 +0800</pubDate>
       
-      <guid>https://mcps5601.github.io/posts/math-terms/</guid>
+      <guid>https://yingjialin.org/posts/math-terms/</guid>
       <description>數學證明常用名詞  Definition (定義): 解釋某個數學用語的意義 Theorem (定理): 重要的數學敘述或理論，通常經由證明而得 Axiom (公理): 普遍可以被接受且不用經過證明的現象或敘述 Proposition (命題): 和定理意涵相似，可能是重要程度較低的小結果 Lemma (引理): 輔助證明以引導出定理的小結果，因為證明定理的過程可能篇幅很長 Remark (評論): 對於定理或證明結果所引申出來的敘述 Corollary (推論): 基於定理來進一步推導的論述，通常也有證明輔助  </description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://mcps5601.github.io/posts/my-first-post/</link>
-      <pubDate>Fri, 25 Dec 2020 16:27:46 +0800</pubDate>
-      
-      <guid>https://mcps5601.github.io/posts/my-first-post/</guid>
-      <description>Hello word!</description>
     </item>
     
   </channel>
