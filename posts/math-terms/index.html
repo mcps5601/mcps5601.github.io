@@ -197,34 +197,54 @@
     });
   
     window.addEventListener('DOMContentLoaded', () => {
-      
-      
       const menuRoot = document.querySelector('.menu');
+
+      
+      const toggleSubmenu = (a, evt) => {
+        const next = a.nextElementSibling;
+        if (next && next.classList.contains('submenu')) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          const isOpen = next.classList.toggle('open');
+          a.setAttribute('aria-expanded', String(isOpen));
+          return true;
+        }
+        return false;
+      };
+
+      
       menuRoot?.addEventListener('click', (e) => {
         if (!document.documentElement.classList.contains('open')) return; 
         const a = e.target.closest('a');
         if (!a || !menuRoot.contains(a)) return;
+        toggleSubmenu(a, e);
+      });
 
-        const next = a.nextElementSibling;
-        if (next && next.classList.contains('submenu')) {
-          e.preventDefault(); 
-          const isOpen = next.classList.toggle('open');
-          a.setAttribute('aria-expanded', String(isOpen)); 
-        }
-    });
-    
-    document.querySelectorAll('.submenu.lvl1 > li').forEach(li => {
-      li.addEventListener('mouseenter', () => {
-        const sub = li.querySelector('.submenu.lvl2');
-        if (!sub) return;
-        sub.classList.remove('from-right');
-        const rect = sub.getBoundingClientRect();
-        if (rect.right > window.innerWidth) {
-          sub.classList.add('from-right'); 
+      
+      menuRoot?.addEventListener('keydown', (e) => {
+        if (!document.documentElement.classList.contains('open')) return;
+        const a = e.target.closest('a');
+        if (!a || !menuRoot.contains(a)) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (toggleSubmenu(a, e)) {
+            e.preventDefault();
+          }
         }
       });
+
+      
+      document.querySelectorAll('.submenu.lvl1 > li').forEach(li => {
+        li.addEventListener('mouseenter', () => {
+          const sub = li.querySelector('.submenu.lvl2');
+          if (!sub) return;
+          sub.classList.remove('from-right');
+          const rect = sub.getBoundingClientRect();
+          if (rect.right > window.innerWidth) {
+            sub.classList.add('from-right');
+          }
+        });
+      });
     });
-  });
   </script>
 
   <div
