@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Categories on Ying-Jia Lin</title>
-    <link>https://yingjialin.org/categories/</link>
-    <description>Recent content in Categories on Ying-Jia Lin</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright><atom:link href="https://yingjialin.org/categories/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
+	<channel>
+		<title>Categories on Ying-Jia Lin</title>
+		<link>https://yingjialin.org/categories/</link>
+		<description>Recent content in Categories on Ying-Jia Lin</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+			<copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+		
+		
+			<atom:link href="https://yingjialin.org/categories/index.xml" rel="self" type="application/rss+xml" />
+	</channel>
 </rss>

@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>medicine on Ying-Jia Lin</title>
-    <link>https://yingjialin.org/tags/medicine/</link>
-    <description>Recent content in medicine on Ying-Jia Lin</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 15 Nov 2021 14:38:40 +0800</lastBuildDate><atom:link href="https://yingjialin.org/tags/medicine/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</title>
-      <link>https://yingjialin.org/post/radbert-cl/</link>
-      <pubDate>Mon, 15 Nov 2021 14:38:40 +0800</pubDate>
-      
-      <guid>https://yingjialin.org/post/radbert-cl/</guid>
-      <description>論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Medicine on Ying-Jia Lin</title>
+		<link>https://yingjialin.org/tags/medicine/</link>
+		<description>Recent content in Medicine on Ying-Jia Lin</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+			<copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+		
+		
+			<lastBuildDate>Mon, 15 Nov 2021 14:38:40 +0800</lastBuildDate>
+		
+			<atom:link href="https://yingjialin.org/tags/medicine/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification</title>
+				<link>https://yingjialin.org/post/radbert-cl/</link>
+				<pubDate>Mon, 15 Nov 2021 14:38:40 +0800</pubDate>
+				<guid>https://yingjialin.org/post/radbert-cl/</guid>
+				<description>&lt;h2 id=&#34;論文資訊&#34;&gt;論文資訊&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;會議: Machine Learning for Health (ML4H) 2021 (&lt;a href=&#34;https://arxiv.org/pdf/2110.15426.pdf&#34;&gt;論文連結&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;作者單位: The University of Texas at Austin&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;研究動機&#34;&gt;研究動機&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;本篇重點&#34;&gt;本篇重點&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Data augmentation&#xA;&lt;ul&gt;&#xA;&lt;li&gt;因為要做 contrastive pre-training learning&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;極度仰賴 &lt;a href=&#34;https://arxiv.org/abs/2012.15466&#34;&gt;Wu et al. (2020a)&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;related-work&#34;&gt;Related work&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/2005.12766&#34;&gt;Fang and Xie (2020)&lt;/a&gt; 針對正向資料使用句子層級的 back-translation&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://arxiv.org/abs/2012.15466&#34;&gt;Wu et al. (2020a)&lt;/a&gt; 整合4種句子層級的資料擴增&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Word deletion&lt;/li&gt;&#xA;&lt;li&gt;Span deletion&lt;/li&gt;&#xA;&lt;li&gt;Reordering&lt;/li&gt;&#xA;&lt;li&gt;Synonym substitution&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;在 pre-training 的部分進行改進&#xA;&lt;ul&gt;&#xA;&lt;li&gt;利用 Contrastive pre-training 來增加模型在任務上的事實確認能力&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;資料: radiology reports&#xA;&lt;ul&gt;&#xA;&lt;li&gt;MIMIC-CXR (&lt;a href=&#34;https://www.nature.com/articles/s41597-019-0322-0&#34;&gt;Johnson et al., 2019&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;資料答案: 使用 CheXpert (&lt;a href=&#34;https://arxiv.org/pdf/1901.07031.pdf&#34;&gt;Irvin et al., 2019&lt;/a&gt;)，供 fine-tuning 時使用&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;資料擴增&#34;&gt;資料擴增&lt;/h3&gt;&#xA;&lt;h4 id=&#34;info-preservation-module&#34;&gt;Info-preservation module&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;對應論文 Section 3.2.1&lt;/li&gt;&#xA;&lt;li&gt;目的: 確定 augmented reports 仍然保有重要概念 (concepts)&lt;/li&gt;&#xA;&lt;li&gt;方法: rule-based (類似於 &lt;a href=&#34;https://aclanthology.org/2020.semeval-1.236.pdf&#34;&gt;Dynamic-LCS&lt;/a&gt;)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;先對 augmented reports 做 lemmatization&lt;/li&gt;&#xA;&lt;li&gt;將 RadLex ontology 中的 concepts 與 augmented reports 做 greedy match&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;longer matches are returned when possible&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

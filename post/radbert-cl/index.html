@@ -55,8 +55,64 @@
   
   
   
-  <meta name="description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al." />
-  <meta name="author" content="Greetings!👨‍💻" />
+  <meta name="description" content="論文資訊
+
+會議: Machine Learning for Health (ML4H) 2021 (論文連結)
+作者單位: The University of Texas at Austin
+
+研究動機
+
+BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好
+
+本篇重點
+
+Data augmentation
+
+因為要做 contrastive pre-training learning
+
+
+極度仰賴 Wu et al. (2020a)
+
+Related work
+
+Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation
+Wu et al. (2020a) 整合4種句子層級的資料擴增
+
+Word deletion
+Span deletion
+Reordering
+Synonym substitution
+
+
+
+方法
+
+在 pre-training 的部分進行改進
+
+利用 Contrastive pre-training 來增加模型在任務上的事實確認能力
+
+
+資料: radiology reports
+
+MIMIC-CXR (Johnson et al., 2019)
+
+
+資料答案: 使用 CheXpert (Irvin et al., 2019)，供 fine-tuning 時使用
+
+資料擴增
+Info-preservation module
+
+對應論文 Section 3.2.1
+目的: 確定 augmented reports 仍然保有重要概念 (concepts)
+方法: rule-based (類似於 Dynamic-LCS)
+
+先對 augmented reports 做 lemmatization
+將 RadLex ontology 中的 concepts 與 augmented reports 做 greedy match
+
+
+
+longer matches are returned when possible" />
+  <meta name="author" content="Ying-Jia Lin" />
   
 
   
@@ -97,11 +153,11 @@
   <link rel="apple-touch-icon" href="https://yingjialin.org/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.164.0">
 
   
   
-  
+
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -110,26 +166,32 @@
   
   
   
-  
-  
-  <meta property="og:title" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification" />
-<meta property="og:description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://yingjialin.org/post/radbert-cl/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-11-15T14:38:40+08:00" />
-<meta property="article:modified_time" content="2021-11-15T14:38:40+08:00" />
+  <meta property="og:url" content="https://yingjialin.org/post/radbert-cl/">
+	<meta property="og:site_name" content="Ying-Jia Lin">
+	<meta property="og:title" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification">
+	<meta property="og:description" content="論文資訊 會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin 研究動機 BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好 本篇重點 Data augmentation 因為要做 contrastive pre-training learning 極度仰賴 Wu et al. (2020a) Related work Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增 Word deletion Span deletion Reordering Synonym substitution 方法 在 pre-training 的部分進行改進 利用 Contrastive pre-training 來增加模型在任務上的事實確認能力 資料: radiology reports MIMIC-CXR (Johnson et al., 2019) 資料答案: 使用 CheXpert (Irvin et al., 2019)，供 fine-tuning 時使用 資料擴增 Info-preservation module 對應論文 Section 3.2.1 目的: 確定 augmented reports 仍然保有重要概念 (concepts) 方法: rule-based (類似於 Dynamic-LCS) 先對 augmented reports 做 lemmatization 將 RadLex ontology 中的 concepts 與 augmented reports 做 greedy match longer matches are returned when possible">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="post">
+		<meta property="article:published_time" content="2021-11-15T14:38:40+08:00">
+		<meta property="article:modified_time" content="2021-11-15T14:38:40+08:00">
+		<meta property="article:tag" content="論文">
+		<meta property="article:tag" content="NLP">
+		<meta property="article:tag" content="Medicine">
 
-
   
-  <meta itemprop="name" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification">
-<meta itemprop="description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al."><meta itemprop="datePublished" content="2021-11-15T14:38:40+08:00" />
-<meta itemprop="dateModified" content="2021-11-15T14:38:40+08:00" />
-<meta itemprop="wordCount" content="370">
-<meta itemprop="keywords" content="論文,NLP,medicine," />
   
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification"/>
-<meta name="twitter:description" content="論文資訊  會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin  研究動機  BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好  本篇重點  Data augmentation  因為要做 contrastive pre-training learning   極度仰賴 Wu et al. (2020a)  Related work  Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增  Word deletion Span deletion Reordering Synonym substitution    方法  在 pre-training 的部分進行改進  利用 Contrastive pre-training 來增加模型在任務上的事實確認能力   資料: radiology reports  MIMIC-CXR (Johnson et al."/>
+	<meta itemprop="name" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification">
+	<meta itemprop="description" content="論文資訊 會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin 研究動機 BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好 本篇重點 Data augmentation 因為要做 contrastive pre-training learning 極度仰賴 Wu et al. (2020a) Related work Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增 Word deletion Span deletion Reordering Synonym substitution 方法 在 pre-training 的部分進行改進 利用 Contrastive pre-training 來增加模型在任務上的事實確認能力 資料: radiology reports MIMIC-CXR (Johnson et al., 2019) 資料答案: 使用 CheXpert (Irvin et al., 2019)，供 fine-tuning 時使用 資料擴增 Info-preservation module 對應論文 Section 3.2.1 目的: 確定 augmented reports 仍然保有重要概念 (concepts) 方法: rule-based (類似於 Dynamic-LCS) 先對 augmented reports 做 lemmatization 將 RadLex ontology 中的 concepts 與 augmented reports 做 greedy match longer matches are returned when possible">
+	<meta itemprop="datePublished" content="2021-11-15T14:38:40+08:00">
+	<meta itemprop="dateModified" content="2021-11-15T14:38:40+08:00">
+	<meta itemprop="wordCount" content="370">
+	<meta itemprop="keywords" content="論文,NLP,Medicine">
+  
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="RadBERT-CL: Factually-Aware Contrastive Learning For Radiology Report Classification">
+	<meta name="twitter:description" content="論文資訊 會議: Machine Learning for Health (ML4H) 2021 (論文連結) 作者單位: The University of Texas at Austin 研究動機 BERT 跟 BlueBert 沒辦法把 uncertainty 跟 negation 的問題處理得很好 本篇重點 Data augmentation 因為要做 contrastive pre-training learning 極度仰賴 Wu et al. (2020a) Related work Fang and Xie (2020) 針對正向資料使用句子層級的 back-translation Wu et al. (2020a) 整合4種句子層級的資料擴增 Word deletion Span deletion Reordering Synonym substitution 方法 在 pre-training 的部分進行改進 利用 Contrastive pre-training 來增加模型在任務上的事實確認能力 資料: radiology reports MIMIC-CXR (Johnson et al., 2019) 資料答案: 使用 CheXpert (Irvin et al., 2019)，供 fine-tuning 時使用 資料擴增 Info-preservation module 對應論文 Section 3.2.1 目的: 確定 augmented reports 仍然保有重要概念 (concepts) 方法: rule-based (類似於 Dynamic-LCS) 先對 augmented reports 做 lemmatization 將 RadLex ontology 中的 concepts 與 augmented reports 做 greedy match longer matches are returned when possible">
 
   
   
@@ -172,7 +234,7 @@
 
     
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const lightBg = `#faf6f1`.replace(/"/g, '');
     const setDark = (isDark) => {
       metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
@@ -391,6 +453,9 @@
       
       
       
+      <span class="mx-1">&middot;</span>
+      <span>Ying-Jia Lin</span>
+      
     </div>
     
   </header>
@@ -513,40 +578,40 @@
 <li>本篇依據資料擴增手段的不同提出3種算法，整理如下:</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Algorithm 1</th>
-<th>Algorithm 2</th>
-<th>Algorithm 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Negation/Uncertainty</td>
-<td>-</td>
-<td>只保留 positives (確實有病)</td>
-<td>皆保留 (有病+沒病)</td>
-</tr>
-<tr>
-<td>類型</td>
-<td>Doc-level</td>
-<td>Sent-level</td>
-<td>Sent-level</td>
-</tr>
-<tr>
-<td>相同的 view</td>
-<td>同病人的報告</td>
-<td>相同的疾病的句子</td>
-<td>相同事實的句子 (確定有該疾病)</td>
-</tr>
-<tr>
-<td>不同的 view</td>
-<td>不同病人的報告</td>
-<td>不同疾病的句子</td>
-<td>不同事實的句子 (沒有該疾病或是有不同疾病)</td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th></th>
+					<th>Algorithm 1</th>
+					<th>Algorithm 2</th>
+					<th>Algorithm 3</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>Negation/Uncertainty</td>
+					<td>-</td>
+					<td>只保留 positives (確實有病)</td>
+					<td>皆保留 (有病+沒病)</td>
+			</tr>
+			<tr>
+					<td>類型</td>
+					<td>Doc-level</td>
+					<td>Sent-level</td>
+					<td>Sent-level</td>
+			</tr>
+			<tr>
+					<td>相同的 view</td>
+					<td>同病人的報告</td>
+					<td>相同的疾病的句子</td>
+					<td>相同事實的句子 (確定有該疾病)</td>
+			</tr>
+			<tr>
+					<td>不同的 view</td>
+					<td>不同病人的報告</td>
+					<td>不同疾病的句子</td>
+					<td>不同事實的句子 (沒有該疾病或是有不同疾病)</td>
+			</tr>
+	</tbody>
 </table>
 <h4 id="模型">模型</h4>
 <p><img src="https://i.imgur.com/8oZNIjK.png" alt=""></p>
@@ -641,7 +706,7 @@
 >
   <div class="mr-auto">
     &copy; 2026
-    <a class="link" href="https://yingjialin.org">Ying-Jia Lin</a>
+    <a class="link" href="https://yingjialin.org/">Ying-Jia Lin</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

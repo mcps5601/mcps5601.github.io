@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>math on Ying-Jia Lin</title>
-    <link>https://yingjialin.org/tags/math/</link>
-    <description>Recent content in math on Ying-Jia Lin</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 15 Nov 2021 14:49:12 +0800</lastBuildDate><atom:link href="https://yingjialin.org/tags/math/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Trees and Distance: Basic Properties</title>
-      <link>https://yingjialin.org/post/graph_ch_2_1/</link>
-      <pubDate>Mon, 15 Nov 2021 14:49:12 +0800</pubDate>
-      
-      <guid>https://yingjialin.org/post/graph_ch_2_1/</guid>
-      <description>參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree.</description>
-    </item>
-    
-  </channel>
+	<channel>
+		<title>Math on Ying-Jia Lin</title>
+		<link>https://yingjialin.org/tags/math/</link>
+		<description>Recent content in Math on Ying-Jia Lin</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+			<copyright>Copyright © 2008–2019, Steve Francia and the lee.so; all rights reserved.</copyright>
+		
+		
+			<lastBuildDate>Mon, 15 Nov 2021 14:49:12 +0800</lastBuildDate>
+		
+			<atom:link href="https://yingjialin.org/tags/math/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Trees and Distance: Basic Properties</title>
+				<link>https://yingjialin.org/post/graph_ch_2_1/</link>
+				<pubDate>Mon, 15 Nov 2021 14:49:12 +0800</pubDate>
+				<guid>https://yingjialin.org/post/graph_ch_2_1/</guid>
+				<description>&lt;ul&gt;&#xA;&lt;li&gt;參考書籍: &lt;a href=&#34;https://faculty.math.illinois.edu/~west/igt/&#34;&gt;Introduction to Graph Theory - Second edition&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;樹基本定義&#34;&gt;樹基本定義&lt;/h2&gt;&#xA;&lt;h3 id=&#34;acyclic&#34;&gt;acyclic&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A graph with no cycle&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;forest&#34;&gt;forest&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An acyclic graph&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;tree&#34;&gt;tree&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A connected acyclic graph&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;leaf&#34;&gt;leaf&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A vertex of degree 1&lt;/li&gt;&#xA;&lt;li&gt;又稱作 pendant vertex&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;spanning-subgraph&#34;&gt;spanning subgraph&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;spanning-tree&#34;&gt;spanning tree&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A spanning tree is a spanning subgraph that is a tree.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;lemma-213&#34;&gt;Lemma 2.1.3&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;font color=&#34;#008000&#34;&gt;Every tree with at least two vertices has at least two leaves. Deleting a leaf from an $n$-vertex tree produces a tree with $n-1$ vertices.&lt;/font&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;proof&#34;&gt;Proof&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G&amp;rsquo;=G-v$&lt;/li&gt;&#xA;&lt;li&gt;由於 $v$ 是一個 leaf，其 degree 為1&lt;/li&gt;&#xA;&lt;li&gt;且每個 tree 的 leaf 必定為其上的 path 的終點&lt;/li&gt;&#xA;&lt;li&gt;移除一個 leaf 後，path 上的剩餘點仍相連&lt;/li&gt;&#xA;&lt;li&gt;因此 $G&amp;rsquo;$ 是一個具有具有 $n-1$ 個 vertices 的 tree&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;theorem-214&#34;&gt;Theorem 2.1.4&lt;/h2&gt;&#xA;&lt;p&gt;For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -55,8 +55,50 @@
   
   
   
-  <meta name="description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree." />
-  <meta name="author" content="Greetings!👨‍💻" />
+  <meta name="description" content="
+參考書籍: Introduction to Graph Theory - Second edition
+
+樹基本定義
+acyclic
+
+A graph with no cycle
+
+forest
+
+An acyclic graph
+
+tree
+
+A connected acyclic graph
+
+leaf
+
+A vertex of degree 1
+又稱作 pendant vertex
+
+spanning subgraph
+
+A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.
+
+spanning tree
+
+A spanning tree is a spanning subgraph that is a tree.
+
+Lemma 2.1.3
+
+Every tree with at least two vertices has at least two leaves. Deleting a leaf from an $n$-vertex tree produces a tree with $n-1$ vertices.
+
+Proof
+
+設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G&rsquo;=G-v$
+由於 $v$ 是一個 leaf，其 degree 為1
+且每個 tree 的 leaf 必定為其上的 path 的終點
+移除一個 leaf 後，path 上的剩餘點仍相連
+因此 $G&rsquo;$ 是一個具有具有 $n-1$ 個 vertices 的 tree
+
+Theorem 2.1.4
+For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent." />
+  <meta name="author" content="Ying-Jia Lin" />
   
 
   
@@ -97,11 +139,11 @@
   <link rel="apple-touch-icon" href="https://yingjialin.org/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.88.1" />
+  <meta name="generator" content="Hugo 0.164.0">
 
   
   
-  
+
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -110,26 +152,31 @@
   
   
   
-  
-  
-  <meta property="og:title" content="Trees and Distance: Basic Properties" />
-<meta property="og:description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://yingjialin.org/post/graph_ch_2_1/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-11-15T14:49:12+08:00" />
-<meta property="article:modified_time" content="2021-11-15T14:49:12+08:00" />
+  <meta property="og:url" content="https://yingjialin.org/post/graph_ch_2_1/">
+	<meta property="og:site_name" content="Ying-Jia Lin">
+	<meta property="og:title" content="Trees and Distance: Basic Properties">
+	<meta property="og:description" content="參考書籍: Introduction to Graph Theory - Second edition 樹基本定義 acyclic A graph with no cycle forest An acyclic graph tree A connected acyclic graph leaf A vertex of degree 1 又稱作 pendant vertex spanning subgraph A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$. spanning tree A spanning tree is a spanning subgraph that is a tree. Lemma 2.1.3 Every tree with at least two vertices has at least two leaves. Deleting a leaf from an $n$-vertex tree produces a tree with $n-1$ vertices. Proof 設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G’=G-v$ 由於 $v$ 是一個 leaf，其 degree 為1 且每個 tree 的 leaf 必定為其上的 path 的終點 移除一個 leaf 後，path 上的剩餘點仍相連 因此 $G’$ 是一個具有具有 $n-1$ 個 vertices 的 tree Theorem 2.1.4 For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="post">
+		<meta property="article:published_time" content="2021-11-15T14:49:12+08:00">
+		<meta property="article:modified_time" content="2021-11-15T14:49:12+08:00">
+		<meta property="article:tag" content="圖形理論">
+		<meta property="article:tag" content="Math">
 
-
   
-  <meta itemprop="name" content="Trees and Distance: Basic Properties">
-<meta itemprop="description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree."><meta itemprop="datePublished" content="2021-11-15T14:49:12+08:00" />
-<meta itemprop="dateModified" content="2021-11-15T14:49:12+08:00" />
-<meta itemprop="wordCount" content="889">
-<meta itemprop="keywords" content="圖形理論,math," />
   
-  <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Trees and Distance: Basic Properties"/>
-<meta name="twitter:description" content="參考書籍: Introduction to Graph Theory - Second edition  樹基本定義 acyclic  A graph with no cycle  forest  An acyclic graph  tree  A connected acyclic graph  leaf  A vertex of degree 1 又稱作 pendant vertex  spanning subgraph  A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$.  spanning tree  A spanning tree is a spanning subgraph that is a tree."/>
+	<meta itemprop="name" content="Trees and Distance: Basic Properties">
+	<meta itemprop="description" content="參考書籍: Introduction to Graph Theory - Second edition 樹基本定義 acyclic A graph with no cycle forest An acyclic graph tree A connected acyclic graph leaf A vertex of degree 1 又稱作 pendant vertex spanning subgraph A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$. spanning tree A spanning tree is a spanning subgraph that is a tree. Lemma 2.1.3 Every tree with at least two vertices has at least two leaves. Deleting a leaf from an $n$-vertex tree produces a tree with $n-1$ vertices. Proof 設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G’=G-v$ 由於 $v$ 是一個 leaf，其 degree 為1 且每個 tree 的 leaf 必定為其上的 path 的終點 移除一個 leaf 後，path 上的剩餘點仍相連 因此 $G’$ 是一個具有具有 $n-1$ 個 vertices 的 tree Theorem 2.1.4 For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent.">
+	<meta itemprop="datePublished" content="2021-11-15T14:49:12+08:00">
+	<meta itemprop="dateModified" content="2021-11-15T14:49:12+08:00">
+	<meta itemprop="wordCount" content="889">
+	<meta itemprop="keywords" content="圖形理論,Math">
+  
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Trees and Distance: Basic Properties">
+	<meta name="twitter:description" content="參考書籍: Introduction to Graph Theory - Second edition 樹基本定義 acyclic A graph with no cycle forest An acyclic graph tree A connected acyclic graph leaf A vertex of degree 1 又稱作 pendant vertex spanning subgraph A spanning subgraph of $G$ is a subgraph with vertex set $V(G)$. spanning tree A spanning tree is a spanning subgraph that is a tree. Lemma 2.1.3 Every tree with at least two vertices has at least two leaves. Deleting a leaf from an $n$-vertex tree produces a tree with $n-1$ vertices. Proof 設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G’=G-v$ 由於 $v$ 是一個 leaf，其 degree 為1 且每個 tree 的 leaf 必定為其上的 path 的終點 移除一個 leaf 後，path 上的剩餘點仍相連 因此 $G’$ 是一個具有具有 $n-1$ 個 vertices 的 tree Theorem 2.1.4 For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent.">
 
   
   
@@ -172,7 +219,7 @@
 
     
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const lightBg = `#faf6f1`.replace(/"/g, '');
     const setDark = (isDark) => {
       metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
       htmlClass[isDark ? 'add' : 'remove']('dark');
@@ -391,6 +438,9 @@
       
       
       
+      <span class="mx-1">&middot;</span>
+      <span>Ying-Jia Lin</span>
+      
     </div>
     
   </header>
@@ -430,11 +480,11 @@
 </ul>
 <h3 id="proof">Proof</h3>
 <ul>
-<li>設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G'=G-v$</li>
+<li>設 $G$ 是一個 tree，$v$ 是 $G$ 的一個leaf，且 $G&rsquo;=G-v$</li>
 <li>由於 $v$ 是一個 leaf，其 degree 為1</li>
 <li>且每個 tree 的 leaf 必定為其上的 path 的終點</li>
 <li>移除一個 leaf 後，path 上的剩餘點仍相連</li>
-<li>因此 $G'$ 是一個具有具有 $n-1$ 個 vertices 的 tree</li>
+<li>因此 $G&rsquo;$ 是一個具有具有 $n-1$ 個 vertices 的 tree</li>
 </ul>
 <h2 id="theorem-214">Theorem 2.1.4</h2>
 <p>For an $n$-vertex graph $G$ (with $n\geq 1$), the following are equivalent.</p>
@@ -447,13 +497,13 @@
 <h3 id="proof-a推到bc">Proof: A推到{B,C}</h3>
 <p>By induction
 $n=1$: trivial
-$n&gt;1$: Given an acyclic connected graph $G$, $\exists$ a leaf $v$ s.t. $G'=G-v$ is also acyclic and connected.
-By I.H., $e(G')=n-2\Rightarrow e(G)=n-1$</p>
+$n&gt;1$: Given an acyclic connected graph $G$, $\exists$ a leaf $v$ s.t. $G&rsquo;=G-v$ is also acyclic and connected.
+By I.H., $e(G&rsquo;)=n-2\Rightarrow e(G)=n-1$</p>
 <h3 id="proof-b推到ac">Proof: B推到{A,C}</h3>
 <ul>
 <li>如果 $G$ 有 cycle 的話，就破壞 edge，直到形成 B 的性質，設為 $G'$</li>
-<li>此時 $G'$ 是 acyclic $\Rightarrow G'$ 是 connected，可推得 A</li>
-<li>$G'$ 是 connected $\Rightarrow e(G')=n-1=e(G)$，可推得 C</li>
+<li>此時 $G&rsquo;$ 是 acyclic $\Rightarrow G&rsquo;$ 是 connected，可推得 A</li>
+<li>$G&rsquo;$ 是 connected $\Rightarrow e(G&rsquo;)=n-1=e(G)$，可推得 C</li>
 </ul>
 <h3 id="proof-c推到ab">Proof: C推到{A,B}</h3>
 <ul>
@@ -489,56 +539,56 @@ $\Rightarrow e(G)=\sum_i[n(G_i)-1]=n-k$</li>
 </ul>
 <h2 id="proposition-216">Proposition 2.1.6</h2>
 <ul>
-<li><font color="#008000">If $T$ and $T'$ are spanning trees of a connected graph $G$ and $e\in E(T)-E(T')$,</font></li>
-<li><font color="#008000">then there is an edge $e'\in E(T')-E(T)$ such that $T-e+e'$ is a spanning tree of $G$.</font></li>
+<li><font color="#008000">If $T$ and $T&rsquo;$ are spanning trees of a connected graph $G$ and $e\in E(T)-E(T&rsquo;)$,</font></li>
+<li><font color="#008000">then there is an edge $e&rsquo;\in E(T&rsquo;)-E(T)$ such that $T-e+e&rsquo;$ is a spanning tree of $G$.</font></li>
 </ul>
 <h3 id="proof-2">Proof</h3>
 <ul>
-<li>設 $U, U'$ 為 $T-e$ 的兩個 components</li>
-<li>因為 $T'$ 是 connected，$T'$ 的 edge $e'$ 正好連接 $U, U'$ 的兩個端點</li>
-<li>故 $T-e+e'$ 是 $G$ 的 spanning tree</li>
+<li>設 $U, U&rsquo;$ 為 $T-e$ 的兩個 components</li>
+<li>因為 $T&rsquo;$ 是 connected，$T&rsquo;$ 的 edge $e&rsquo;$ 正好連接 $U, U&rsquo;$ 的兩個端點</li>
+<li>故 $T-e+e&rsquo;$ 是 $G$ 的 spanning tree</li>
 </ul>
 <h2 id="proposition-217">Proposition 2.1.7</h2>
 <ul>
-<li><font color="#008000">If $T$ and $T'$ are spanning trees of a connected graph $G$ and $e\in E(T)-E(T')$,</font></li>
-<li><font color="#008000">then there is an edge $e'\in E(T')-E(T)$ such that $T'+e-e'$ is a spanning tree of $G$.</font></li>
+<li><font color="#008000">If $T$ and $T&rsquo;$ are spanning trees of a connected graph $G$ and $e\in E(T)-E(T&rsquo;)$,</font></li>
+<li><font color="#008000">then there is an edge $e&rsquo;\in E(T&rsquo;)-E(T)$ such that $T&rsquo;+e-e&rsquo;$ is a spanning tree of $G$.</font></li>
 </ul>
 <h3 id="proof-3">Proof</h3>
 <ul>
-<li>$T'+e$ 形成一個 unique cycle $C$</li>
-<li>由於 $T$ 是 acyclic，移除 $T'+e$ 的 edge $e'$ 將破壞 cycle $C$</li>
-<li>故 $T'+e-e'$ 是 $G$ 的 spanning tree</li>
+<li>$T&rsquo;+e$ 形成一個 unique cycle $C$</li>
+<li>由於 $T$ 是 acyclic，移除 $T&rsquo;+e$ 的 edge $e&rsquo;$ 將破壞 cycle $C$</li>
+<li>故 $T&rsquo;+e-e&rsquo;$ 是 $G$ 的 spanning tree</li>
 </ul>
 <h2 id="definitions-of-trees-and-graphs">Definitions of Trees and Graphs</h2>
 <table>
-<thead>
-<tr>
-<th>distance</th>
-<th>diameter</th>
-<th>eccentricity</th>
-<th>radius</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$d_G(u, v)$</td>
-<td>$\textrm{diam}\space G$</td>
-<td>$\varepsilon(u)$</td>
-<td>$\textrm{rad}\space G$</td>
-</tr>
-<tr>
-<td>$u,v-$path 的最小長度</td>
-<td>$G$ 中任兩點的最大長度</td>
-<td>$G$ 中的點到 $u$ 的最大長度</td>
-<td>$G$ 中最小的 eccentricity</td>
-</tr>
-<tr>
-<td></td>
-<td>$\textrm{max}_{u,v\in V(G)}d(u,v)$</td>
-<td>$\textrm{max}_{v\in V(G)}d(u,v)$</td>
-<td>$\textrm{min}_{u\in V(G)}\varepsilon(u)$</td>
-</tr>
-</tbody>
+	<thead>
+			<tr>
+					<th>distance</th>
+					<th>diameter</th>
+					<th>eccentricity</th>
+					<th>radius</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$d_G(u, v)$</td>
+					<td>$\textrm{diam}\space G$</td>
+					<td>$\varepsilon(u)$</td>
+					<td>$\textrm{rad}\space G$</td>
+			</tr>
+			<tr>
+					<td>$u,v-$path 的最小長度</td>
+					<td>$G$ 中任兩點的最大長度</td>
+					<td>$G$ 中的點到 $u$ 的最大長度</td>
+					<td>$G$ 中最小的 eccentricity</td>
+			</tr>
+			<tr>
+					<td></td>
+					<td>$\textrm{max}_{u,v\in V(G)}d(u,v)$</td>
+					<td>$\textrm{max}_{v\in V(G)}d(u,v)$</td>
+					<td>$\textrm{min}_{u\in V(G)}\varepsilon(u)$</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="theorem-2111">Theorem 2.1.11</h2>
 <ul>
@@ -579,9 +629,9 @@ $\Rightarrow e(G)=\sum_i[n(G_i)-1]=n-k$</li>
 <li>當 $n(T)\geq2$ 時:
 <ul>
 <li>刪去 $T$ 的每一個 leaf，得到 $T'$</li>
-<li>此時 $n(T')\geq 1$，且 $\varepsilon_{T'}(u)=\varepsilon_T(u)-1 ,\space \forall u\in V(T')$</li>
+<li>此時 $n(T&rsquo;)\geq 1$，且 $\varepsilon_{T&rsquo;}(u)=\varepsilon_T(u)-1 ,\space \forall u\in V(T&rsquo;)$</li>
 <li>並且 $T$ 中的 leaf 的 eccentricity 大於 leaf 的鄰居 的 eccentricity</li>
-<li>由此可知，$T$ 和 $T'$ eccentricity 最小的 vertices 是一樣的</li>
+<li>由此可知，$T$ 和 $T&rsquo;$ eccentricity 最小的 vertices 是一樣的</li>
 <li>故 center 如果不是一個點就是一個edge</li>
 </ul>
 </li>
@@ -623,9 +673,9 @@ $\Rightarrow e(G)=\sum_i[n(G_i)-1]=n-k$</li>
 </li>
 <li>計算 $D(P_n)$:
 \begin{align*}
-D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\<br>
-&amp;=D(P_{n-1})+D(P_{n-2})+C(^n_2) \\\<br>
-&amp;=D(P_{n-1})+D(P_{n-2})+\dots +D(P_3)+D(P_2)+D(P_1)+C(^n_2) \\\<br>
+D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\
+&amp;=D(P_{n-1})+D(P_{n-2})+C(^n_2) \\\
+&amp;=D(P_{n-1})+D(P_{n-2})+\dots +D(P_3)+D(P_2)+D(P_1)+C(^n_2) \\\
 \end{align*}</li>
 <li>其中根據 <a href="https://en.wikipedia.org/wiki/Pascal%27s_rule">Pascal&rsquo;s Formula</a>:
 $$
@@ -633,16 +683,16 @@ C(^{n+1}<em>k)=C(^n_k)+C(^n</em>{k-1})
 $$</li>
 <li>因此 $D(P_3)+D(P_2)+D(P_1)$ 可以寫成:
 \begin{align*}
-D(P_3)+D(P_2)+D(P_1)&amp;=C(^3_2)+C(^2_2)+0 \\\<br>
-&amp;=C(^3_2)+C(^3_3)+0 \\\<br>
+D(P_3)+D(P_2)+D(P_1)&amp;=C(^3_2)+C(^2_2)+0 \\\
+&amp;=C(^3_2)+C(^3_3)+0 \\\
 &amp;=C(^4_3)
 \end{align*}</li>
 <li>故可以推導 $D(P_n)$:
 \begin{align*}
-D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\<br>
-&amp;=D(P_{n-1})+D(P_{n-2})+C(^n_2) \\\<br>
-&amp;=C(^{n-1}_2)+C(^{n-1}_3)+C(^n_2) \\\<br>
-&amp;=C(^n_3)+C(^n_2) \\\<br>
+D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\
+&amp;=D(P_{n-1})+D(P_{n-2})+C(^n_2) \\\
+&amp;=C(^{n-1}_2)+C(^{n-1}_3)+C(^n_2) \\\
+&amp;=C(^n_3)+C(^n_2) \\\
 &amp;=C(^{n+1}_3)
 \end{align*}</li>
 </ul>
@@ -753,7 +803,7 @@ D(P_n)&amp;=D(P_{n-1})+C(^n_2) \\\<br>
 >
   <div class="mr-auto">
     &copy; 2026
-    <a class="link" href="https://yingjialin.org">Ying-Jia Lin</a>
+    <a class="link" href="https://yingjialin.org/">Ying-Jia Lin</a>
   </div>
   <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
     >Powered by Hugo️️</a

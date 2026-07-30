@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://yingjialin.org/</loc>
+    <lastmod>2024-04-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://yingjialin.org/about/</loc>
     <lastmod>2024-04-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -18,9 +21,6 @@
     <lastmod>2022-08-07T11:54:01+08:00</lastmod>
   </url><url>
     <loc>https://yingjialin.org/post/umls-bert/</loc>
-    <lastmod>2022-08-07T11:54:01+08:00</lastmod>
-  </url><url>
-    <loc>https://yingjialin.org/</loc>
     <lastmod>2022-08-07T11:54:01+08:00</lastmod>
   </url><url>
     <loc>https://yingjialin.org/tags/%E7%94%9F%E9%86%AB/</loc>
@@ -44,10 +44,10 @@
     <loc>https://yingjialin.org/post/radbert-cl/</loc>
     <lastmod>2021-11-15T14:38:40+08:00</lastmod>
   </url><url>
-    <loc>https://yingjialin.org/post/sbert/</loc>
+    <loc>https://yingjialin.org/tags/sentence_embeddings/</loc>
     <lastmod>2021-10-07T22:25:52+08:00</lastmod>
   </url><url>
-    <loc>https://yingjialin.org/tags/sentence_embeddings/</loc>
+    <loc>https://yingjialin.org/post/sbert/</loc>
     <lastmod>2021-10-07T22:25:52+08:00</lastmod>
   </url><url>
     <loc>https://yingjialin.org/categories/</loc>
