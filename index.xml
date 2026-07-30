@@ -59,24 +59,6 @@ UMLS semantic types  BERT 的輸入除了原本三種 embeddings (token embeddin
     </item>
     
     <item>
-      <title>Math Terms</title>
-      <link>https://yingjialin.org/post/math-terms/</link>
-      <pubDate>Tue, 02 Mar 2021 14:11:38 +0800</pubDate>
-      
-      <guid>https://yingjialin.org/post/math-terms/</guid>
-      <description>數學證明常用名詞  Definition (定義): 解釋某個數學用語的意義 Theorem (定理): 重要的數學敘述或理論，通常經由證明而得 Axiom (公理): 普遍可以被接受且不用經過證明的現象或敘述 Proposition (命題): 和定理意涵相似，可能是重要程度較低的小結果 Lemma (引理): 輔助證明以引導出定理的小結果，因為證明定理的過程可能篇幅很長 Remark (評論): 對於定理或證明結果所引申出來的敘述 Corollary (推論): 基於定理來進一步推導的論述，通常也有證明輔助  </description>
-    </item>
-    
-    <item>
-      <title>Math Terms</title>
-      <link>https://yingjialin.org/posts/math-terms/</link>
-      <pubDate>Tue, 02 Mar 2021 14:11:38 +0800</pubDate>
-      
-      <guid>https://yingjialin.org/posts/math-terms/</guid>
-      <description>數學證明常用名詞  Definition (定義): 解釋某個數學用語的意義 Theorem (定理): 重要的數學敘述或理論，通常經由證明而得 Axiom (公理): 普遍可以被接受且不用經過證明的現象或敘述 Proposition (命題): 和定理意涵相似，可能是重要程度較低的小結果 Lemma (引理): 輔助證明以引導出定理的小結果，因為證明定理的過程可能篇幅很長 Remark (評論): 對於定理或證明結果所引申出來的敘述 Corollary (推論): 基於定理來進一步推導的論述，通常也有證明輔助  </description>
-    </item>
-    
-    <item>
       <title>Deep Learning - 2025 Fall</title>
       <link>https://yingjialin.org/course/dl/2025-fall/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
